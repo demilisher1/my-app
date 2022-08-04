@@ -1,0 +1,22 @@
+.red {
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    background: #ffe5e5;
+}
+.I {
+    margin-bottom: 10px;
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+
+}
+
+.oboutMe a {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}

@@ -1,0 +1,43 @@
+.info {
+    display: flex;
+    margin-bottom: 20px;
+}
+.infoText {
+    margin-left: 25px;
+}
+.ava {
+    width: 250px;
+    border-radius: 28px;
+    box-shadow: 4px 4px 14px rgba(0, 0, 0, 0);
+}
+.iam {
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+
+}
+.ic {
+    margin: 0;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.love {
+    margin: 0;
+    font-style: italic;
+    font-weight: lighter;
+}
+.social {
+    margin-bottom: 10px;
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    font-weight: bold;
+}
+.ref a {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+    text-decoration: none;
+}

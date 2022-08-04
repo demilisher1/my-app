@@ -1,0 +1,35 @@
+.yellow {
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    background: #fff9dc;
+}
+.ho {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+
+}
+.list {
+    padding: 0 5px;
+    list-style: none;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+.link {
+    margin-bottom: 5px;
+}
+
+.UE {
+    color: #868986;
+    margin-bottom: 5px;
+}
+.walk {
+    color: #868986;
+    margin-bottom: 5px;
+}
+.sport {
+    color: #868986;
+    margin-bottom: 5px;
+}
