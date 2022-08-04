@@ -45,10 +45,16 @@ class Works extends React.Component{
     };
 
     render() {
-        return <div className={style.green}>
+        const head = this.state
+        const data = this.state
+        return (
+            <div className={style.green}>
             <div className={style.skill}>Опыт работы</div>
+
         </div>
+        )
     }
 }
+
 
 export default Works;
