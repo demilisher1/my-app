@@ -1,5 +1,6 @@
 import React from "react";
 import style from './Works.module.css';
+import WorkItem from "./components/WorkItem/WorkItem";
 
 class Works extends React.Component {
     state = {
@@ -14,25 +15,25 @@ class Works extends React.Component {
                 work: 'ООО ММС',
                 dolsnost: 'Мастер по изготовлению кухонных гарнитуров',
                 data: "2003 - 2004",
-                id: 4
+                id: 1
             },
             {
                 work: 'ООО Мастер ПАК',
                 dolsnost: 'Оператор экструзионного оборудования',
                 data: "2004 - 2005",
-                id: 1
+                id: 2
             },
             {
                 work: 'ЗАО Инмарко',
                 dolsnost: 'Грузчик в холодном цехе',
                 data: "2005 - 2006",
-                id: 2
+                id: 3
             },
             {
                 work: 'ЗАО Манрос-М',
                 dolsnost: 'Грузчик в теплом складе',
                 data: "2006 - 2006",
-                id: 3
+                id: 4
             },
             {
                 work: 'ЗАО Экоил',
@@ -70,8 +71,9 @@ class Works extends React.Component {
         return res
     }
 
-    removeItem = (id) => {
+    removeItem = (index) => {
          let arr = [...this.state.data];
+         arr.splice(index, 1)
 
          this.setState({
              data: arr
@@ -107,12 +109,16 @@ class Works extends React.Component {
                         }
 
                         return (
-                            <div key={id} className={lesha} onClick={() => {this.removeItem(id)}}>
-                                <div>{evgeniy}</div>
-                                <div className={style.work}>{work}</div>
-                                <div className={style.dolsnost}>{dolsnost}</div>
-                                <div className={style.data}>{data}</div>
-                            </div>
+                            <WorkItem
+                                key={id}
+                            />
+
+                            // <div key={id} className={lesha} onClick={() => {this.removeItem(index)}}>
+                            //     <div>{evgeniy}</div>
+                            //     <div className={style.work}>{work}</div>
+                            //     <div className={style.dolsnost}>{dolsnost}</div>
+                            //     <div className={style.data}>{data}</div>
+                            // </div>
                         )
                     })}
                 </div>
