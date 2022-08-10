@@ -1,7 +1,7 @@
 import React from "react";
-import style from './Obout.module.css';
+import style from './About.module.css';
 
-class Obout extends React.Component{
+class About extends React.Component{
     render() {
         return <div className={style.red}>
             <div className={style.I}>Обо мне</div>
@@ -12,4 +12,4 @@ class Obout extends React.Component{
     }
 }
 
-export default Obout;
+export default About;

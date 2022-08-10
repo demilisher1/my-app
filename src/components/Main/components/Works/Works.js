@@ -1,8 +1,10 @@
 import React from "react";
 import style from './Works.module.css';
 import WorkItem from "./components/WorkItem/WorkItem";
+import WorksHead from "./components/WorkHead/WorkHead";
 
 class Works extends React.Component {
+
     state = {
         head: [
             'Порядковый номер',
@@ -15,25 +17,25 @@ class Works extends React.Component {
                 work: 'ООО ММС',
                 dolsnost: 'Мастер по изготовлению кухонных гарнитуров',
                 data: "2003 - 2004",
-                id: 1
+                id: 4
             },
             {
                 work: 'ООО Мастер ПАК',
                 dolsnost: 'Оператор экструзионного оборудования',
                 data: "2004 - 2005",
-                id: 2
+                id: 1
             },
             {
                 work: 'ЗАО Инмарко',
                 dolsnost: 'Грузчик в холодном цехе',
                 data: "2005 - 2006",
-                id: 3
+                id: 2
             },
             {
                 work: 'ЗАО Манрос-М',
                 dolsnost: 'Грузчик в теплом складе',
                 data: "2006 - 2006",
-                id: 4
+                id: 3
             },
             {
                 work: 'ЗАО Экоил',
@@ -61,15 +63,15 @@ class Works extends React.Component {
             },
         ],
     };
-
-     customMap(callback, array) {
-         let res = [];
-        for (let index in array) {
-            let value = array[index]
-            res.push(callback(value, index))
-        }
-        return res
-    }
+    //  customMap(callback, array) {
+    //      debugger
+    //      let res = [];
+    //     for (let index in array) {
+    //         let value = array[index]
+    //         res.push(callback(value, index))
+    //     }
+    //     return res
+    // };
 
     removeItem = (index) => {
          let arr = [...this.state.data];
@@ -79,23 +81,27 @@ class Works extends React.Component {
          this.setState({
              data: arr
          })
-    }
+    };
 
     render() {
         const {head, data} = this.state;
 
-
-        function callback(value, index) {
-            return <div key={index}>{value}</div>
-        }
-        const result = this.customMap(callback, head);
+        // function callback(value, index) {
+        //     return <div key={index}>{value}</div>
+        // };
+        // const result = this.customMap(callback, head);
 
         return (
             <div className={style.green}>
                 <div className={style.skill}>Опыт работы</div>
                 <div className={style.headItem}>
-                    {result}
+                    {head.map((value, index) =>
+                        <WorksHead
+                            key={index}
+                            value={value}
+                        />)}
                 </div>
+
                 <div className={style.dataItem}>
                     {data.map(({work, dolsnost, data, id}, index) =>  {
                         let lesha = style.dataItem2;
