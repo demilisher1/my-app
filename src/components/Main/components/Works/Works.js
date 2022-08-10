@@ -73,6 +73,7 @@ class Works extends React.Component {
 
     removeItem = (index) => {
          let arr = [...this.state.data];
+
          arr.splice(index, 1)
 
          this.setState({
@@ -88,7 +89,6 @@ class Works extends React.Component {
             return <div key={index}>{value}</div>
         }
         const result = this.customMap(callback, head);
-
 
         return (
             <div className={style.green}>
@@ -111,14 +111,14 @@ class Works extends React.Component {
                         return (
                             <WorkItem
                                 key={id}
+                                lesha={lesha}
+                                index={index}
+                                evgeniy={evgeniy}
+                                work={work}
+                                dolsnost={dolsnost}
+                                data={data}
+                                removeItem={this.removeItem}
                             />
-
-                            // <div key={id} className={lesha} onClick={() => {this.removeItem(index)}}>
-                            //     <div>{evgeniy}</div>
-                            //     <div className={style.work}>{work}</div>
-                            //     <div className={style.dolsnost}>{dolsnost}</div>
-                            //     <div className={style.data}>{data}</div>
-                            // </div>
                         )
                     })}
                 </div>
