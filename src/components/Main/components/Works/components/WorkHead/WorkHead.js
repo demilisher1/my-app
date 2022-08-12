@@ -1,12 +1,19 @@
 import React from "react";
-import style from './WorkHead.module.css'
+// import style from './WorkHead.module.css'
 
 class WorkHead extends React.Component{
 
-    render() {
+    clickCollumHead = () => {
+        console.log(this.props)
+        this.props.removeCollumHead(this.props.index)
+        this.props.removeCollumData()
+    }
+
+      render() {
         return (
             <div>
-                <div>{this.props.value}</div>
+                <div >{this.props.value}</div>
+                <button onClick={this.clickCollumHead}>x</button>
             </div>
         )
     }

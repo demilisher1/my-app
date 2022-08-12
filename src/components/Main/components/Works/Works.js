@@ -63,15 +63,6 @@ class Works extends React.Component {
             },
         ],
     };
-    //  customMap(callback, array) {
-    //      debugger
-    //      let res = [];
-    //     for (let index in array) {
-    //         let value = array[index]
-    //         res.push(callback(value, index))
-    //     }
-    //     return res
-    // };
 
     removeItem = (index) => {
          let arr = [...this.state.data];
@@ -83,13 +74,33 @@ class Works extends React.Component {
          })
     };
 
+    removeCollumHead = (index) => {
+        let arr = [...this.state.head];
+        arr.splice(index, 1)
+
+        this.setState({
+            head: arr
+        })
+    };
+
+    removeCollumData = () => {
+        const arr = this.state.data.map((value, index) => {
+            if('dolsnost' in value){
+                delete value.dolsnost
+            }
+
+            return value
+        })
+
+        this.setState({
+            data: arr
+        })
+    }
+
+
+
     render() {
         const {head, data} = this.state;
-
-        // function callback(value, index) {
-        //     return <div key={index}>{value}</div>
-        // };
-        // const result = this.customMap(callback, head);
 
         return (
             <div className={style.green}>
@@ -99,6 +110,9 @@ class Works extends React.Component {
                         <WorksHead
                             key={index}
                             value={value}
+                            index={index}
+                            removeCollumHead={this.removeCollumHead}
+                            removeCollumData={this.removeCollumData}
                         />)}
                 </div>
 
