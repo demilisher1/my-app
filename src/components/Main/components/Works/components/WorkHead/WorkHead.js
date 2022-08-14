@@ -6,7 +6,6 @@ class WorkHead extends React.Component{
     clickCollumHead = () => {
         console.log(this.props)
         this.props.removeCollumHead(this.props.index)
-        this.props.removeCollumData()
     }
 
       render() {

@@ -76,26 +76,31 @@ class Works extends React.Component {
 
     removeCollumHead = (index) => {
         let arr = [...this.state.head];
-        arr.splice(index, 1)
+
+        arr.splice(index, 1);
+        const arr2 = this.state.data.map((value) => {
+            switch (index) {
+                case 0:  delete value.id
+                    return value
+                break;
+                case 1: delete value.work
+                    return value
+                    break;
+                case 2: delete value.dolsnost
+                    return value
+                    break;
+                case 3: delete value.data
+                    return value
+                    break;
+                default: alert('Ничего');
+            }
+        });
 
         this.setState({
-            head: arr
+            head: arr,
+            data: arr2
         })
     };
-
-    removeCollumData = () => {
-        const arr = this.state.data.map((value, index) => {
-            if('dolsnost' in value){
-                delete value.dolsnost
-            }
-
-            return value
-        })
-
-        this.setState({
-            data: arr
-        })
-    }
 
 
 
@@ -112,7 +117,6 @@ class Works extends React.Component {
                             value={value}
                             index={index}
                             removeCollumHead={this.removeCollumHead}
-                            removeCollumData={this.removeCollumData}
                         />)}
                 </div>
 

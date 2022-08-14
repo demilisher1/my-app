@@ -9,15 +9,12 @@ class WorkItem extends React.Component {
 
     render() {
         return (
-            <div>
-                 <div className={this.props.lesha}>
+                 <div className={this.props.lesha} onClick={this.clickDeliteDataItem}>
                      <div>{this.props.evgeniy}</div>
                      <div className={style.work}>{this.props.work}</div>
                      <div className={style.dolsnost}>{this.props.dolsnost}</div>
                      <div className={style.data}>{this.props.data}</div>
-                     <button onClick={this.clickDeliteDataItem}>x</button>
                  </div>
-            </div>
         )
     }
 }
