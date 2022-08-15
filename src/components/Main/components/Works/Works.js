@@ -7,10 +7,23 @@ class Works extends React.Component {
 
     state = {
         head: [
-            'Порядковый номер',
-            'Место работы',
-            'Должность',
-            'Дата работы'
+            {
+                title:  'Порядковый номер',
+                column: 'number'
+            },
+            {
+                title:  'Место работы',
+                column: 'work'
+            },
+            {
+                title:  'Должность',
+                column: 'dolsnost'
+            },
+            {
+                title:  'Дата работы',
+                column: 'data'
+            },
+
         ],
         data: [
             {
@@ -62,6 +75,7 @@ class Works extends React.Component {
                 id: 8
             },
         ],
+        hideColumns: []
     };
 
     removeItem = (index) => {
@@ -74,41 +88,33 @@ class Works extends React.Component {
          })
     };
 
-    removeCollumHead = (index) => {
+    removeCollumHead = (index, val) => {
         let arr = [...this.state.head];
+        let hideColumns = [...this.state.hideColumns];
 
         arr.splice(index, 1);
-        const arr2 = this.state.data.map((value) => {
-            switch (index) {
-                case 0:  delete value.id
-                    return value
-                break;
-                case 1: delete value.work
-                    return value
-                    break;
-                case 2: delete value.dolsnost
-                    return value
-                    break;
-                case 3: delete value.data
-                    return value
-                    break;
-                default: alert('Ничего');
-            }
-        });
 
+        hideColumns.push(val.column);
+
+
+        // const arr2 = this.state.data.map((value) => {
+        //     delete value[val.column]; // отследить путь путь val в этот map
+        //
+        //     return value
+        // });
+        // debugger;
         this.setState({
             head: arr,
-            data: arr2
+            hideColumns: hideColumns
         })
     };
-
-
 
     render() {
         const {head, data} = this.state;
 
         return (
             <div className={style.green}>
+                <button>Очистить таблицу</button>
                 <div className={style.skill}>Опыт работы</div>
                 <div className={style.headItem}>
                     {head.map((value, index) =>
@@ -142,6 +148,7 @@ class Works extends React.Component {
                                 dolsnost={dolsnost}
                                 data={data}
                                 removeItem={this.removeItem}
+                                hideColumns={this.state.hideColumns}
                             />
                         )
                     })}

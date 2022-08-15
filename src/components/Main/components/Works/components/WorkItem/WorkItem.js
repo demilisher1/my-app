@@ -7,14 +7,24 @@ class WorkItem extends React.Component {
         this.props.removeItem(this.props.index)
     }
 
+
     render() {
+        console.log(this.props.hideColumns)
         return (
-                 <div className={this.props.lesha} onClick={this.clickDeliteDataItem}>
-                     <div>{this.props.evgeniy}</div>
-                     <div className={style.work}>{this.props.work}</div>
-                     <div className={style.dolsnost}>{this.props.dolsnost}</div>
-                     <div className={style.data}>{this.props.data}</div>
-                 </div>
+            <div className={this.props.lesha}  onClick={this.clickDeliteDataItem}>
+                {!this.props.hideColumns.includes('number') && (
+                    <div>{this.props.evgeniy}</div>
+                )}
+                {!this.props.hideColumns.includes('work') && (
+                    <div className={style.work}>{this.props.work}</div>
+                )}
+                {!this.props.hideColumns.includes('dolsnost') && (
+                    <div className={style.dolsnost}>{this.props.dolsnost}</div>
+                )}
+                {!this.props.hideColumns.includes('data') && (
+                    <div className={style.data}>{this.props.data}</div>
+                )}
+            </div>
         )
     }
 }
