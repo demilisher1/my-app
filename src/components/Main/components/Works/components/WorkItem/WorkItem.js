@@ -9,7 +9,6 @@ class WorkItem extends React.Component {
 
 
     render() {
-        console.log(this.props.hideColumns)
         return (
             <div className={this.props.lesha}  onClick={this.clickDeliteDataItem}>
                 {!this.props.hideColumns.includes('number') && (

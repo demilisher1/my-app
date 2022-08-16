@@ -25,6 +25,7 @@ class Works extends React.Component {
             },
 
         ],
+
         data: [
             {
                 work: 'ООО ММС',
@@ -75,7 +76,7 @@ class Works extends React.Component {
                 id: 8
             },
         ],
-        hideColumns: []
+        hideColumns: [],
     };
 
     removeItem = (index) => {
@@ -88,24 +89,13 @@ class Works extends React.Component {
          })
     };
 
-    removeCollumHead = (index, val) => {
-        let arr = [...this.state.head];
+    removeCollumHead = (index, column) => {
         let hideColumns = [...this.state.hideColumns];
 
-        arr.splice(index, 1);
+        hideColumns.push(column);
 
-        hideColumns.push(val.column);
-
-
-        // const arr2 = this.state.data.map((value) => {
-        //     delete value[val.column]; // отследить путь путь val в этот map
-        //
-        //     return value
-        // });
-        // debugger;
         this.setState({
-            head: arr,
-            hideColumns: hideColumns
+            hideColumns: hideColumns,
         })
     };
 
@@ -117,13 +107,19 @@ class Works extends React.Component {
                 <button>Очистить таблицу</button>
                 <div className={style.skill}>Опыт работы</div>
                 <div className={style.headItem}>
-                    {head.map((value, index) =>
-                        <WorksHead
-                            key={index}
-                            value={value}
-                            index={index}
-                            removeCollumHead={this.removeCollumHead}
-                        />)}
+                    {head.map(({column, title}, index) => {
+                        if(!this.state.hideColumns.includes(column)) {
+                            return <WorksHead
+                                key={index}
+                                column={column}
+                                title={title}
+                                index={index}
+                                removeCollumHead={this.removeCollumHead}
+                                hideColumns={this.state.hideColumns}
+                            />
+                        }
+                        }
+                    )}
                 </div>
 
                 <div className={style.dataItem}>
