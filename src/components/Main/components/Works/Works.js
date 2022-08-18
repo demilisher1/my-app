@@ -76,7 +76,12 @@ class Works extends React.Component {
                 id: 8
             },
         ],
+
         hideColumns: [],
+
+        container: true
+
+
     };
 
     removeItem = (index) => {
@@ -98,57 +103,68 @@ class Works extends React.Component {
             hideColumns: hideColumns,
         })
     };
+    ShowAndHide = () => {
+        this.setState({
+                container:!this.state.container
+            }
+        )
+    }
 
     render() {
         const {head, data} = this.state;
-
+        const SowHide = this.state.container
         return (
+
             <div className={style.green}>
-                <button>Очистить таблицу</button>
-                <div className={style.skill}>Опыт работы</div>
-                <div className={style.headItem}>
+                <button onClick={this.ShowAndHide}>{SowHide?'Скрыть список':'Показать список'}</button>
+                {SowHide && (
+                    <>
+                    <div className={style.skill}>Опыт работы</div>
+                    <div className={style.headItem}>
                     {head.map(({column, title}, index) => {
-                        if(!this.state.hideColumns.includes(column)) {
-                            return <WorksHead
-                                key={index}
-                                column={column}
-                                title={title}
-                                index={index}
-                                removeCollumHead={this.removeCollumHead}
-                                hideColumns={this.state.hideColumns}
-                            />
-                        }
+                            if(!this.state.hideColumns.includes(column)) {
+                                return <WorksHead
+                                    key={index}
+                                    column={column}
+                                    title={title}
+                                    index={index}
+                                    removeCollumHead={this.removeCollumHead}
+                                    hideColumns={this.state.hideColumns}
+                                />
+                            }
                         }
                     )}
-                </div>
+                    </div>
+                        <div className={style.dataItem}>
+                            {data.map(({work, dolsnost, data, id}, index) =>  {
+                                let lesha = style.dataItem2;
+                                let evgeniy = index + 1;
+                                if (index %2 !== 0) {
+                                    lesha = lesha + ' ' + style.odd
+                                    evgeniy = `#${evgeniy}`
+                                } else {
+                                    lesha = lesha + ' ' + style.even
+                                    evgeniy = `*${evgeniy}`
+                                }
 
-                <div className={style.dataItem}>
-                    {data.map(({work, dolsnost, data, id}, index) =>  {
-                        let lesha = style.dataItem2;
-                        let evgeniy = index + 1;
-                        if (index %2 !== 0) {
-                            lesha = lesha + ' ' + style.odd
-                            evgeniy = `#${evgeniy}`
-                        } else {
-                            lesha = lesha + ' ' + style.even
-                            evgeniy = `*${evgeniy}`
-                        }
+                                return (
+                                    <WorkItem
+                                        key={id}
+                                        lesha={lesha}
+                                        index={index}
+                                        evgeniy={evgeniy}
+                                        work={work}
+                                        dolsnost={dolsnost}
+                                        data={data}
+                                        removeItem={this.removeItem}
+                                        hideColumns={this.state.hideColumns}
+                                    />
+                                )
+                            })}
+                        </div>
+                    </>
+                )}
 
-                        return (
-                            <WorkItem
-                                key={id}
-                                lesha={lesha}
-                                index={index}
-                                evgeniy={evgeniy}
-                                work={work}
-                                dolsnost={dolsnost}
-                                data={data}
-                                removeItem={this.removeItem}
-                                hideColumns={this.state.hideColumns}
-                            />
-                        )
-                    })}
-                </div>
             </div>
         )
     }
