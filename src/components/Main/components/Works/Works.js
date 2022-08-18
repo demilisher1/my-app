@@ -79,7 +79,7 @@ class Works extends React.Component {
 
         hideColumns: [],
 
-        container: true
+        showHide: true
 
 
     };
@@ -105,14 +105,14 @@ class Works extends React.Component {
     };
     ShowAndHide = () => {
         this.setState({
-                container:!this.state.container
+                showHide:!this.state.showHide
             }
         )
     }
 
     render() {
         const {head, data} = this.state;
-        const SowHide = this.state.container
+        const SowHide = this.state.showHide
         return (
 
             <div className={style.green}>
@@ -164,7 +164,6 @@ class Works extends React.Component {
                         </div>
                     </>
                 )}
-
             </div>
         )
     }

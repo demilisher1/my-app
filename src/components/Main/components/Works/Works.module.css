@@ -18,13 +18,13 @@
     display: grid;
     grid-template-columns: 1fr 1fr 2fr 1fr;
     margin-bottom: 3px;
-    border-bottom: 1px solid #ccc;
+
 }
 .odd {
     background: aqua;
 }
 .even {
-    background: red;
+    background: peachpuff;
 }
 /*.work {*/
 /*    margin-bottom: 3px;*/
