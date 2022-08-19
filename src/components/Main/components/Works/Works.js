@@ -79,7 +79,8 @@ class Works extends React.Component {
 
         hideColumns: [],
 
-        container: true
+        ShowHide: true,
+        textReplace: true
 
 
     };
@@ -105,21 +106,23 @@ class Works extends React.Component {
     };
     ShowAndHide = () => {
         this.setState({
-                container:!this.state.container
+            ShowHide:!this.state.ShowHide,
+            textReplace:!this.state.textReplace
             }
         )
     }
 
     render() {
         const {head, data} = this.state;
-        const SowHide = this.state.container
+        const SowHide = this.state.ShowHide
+        const text = this.state.textReplace
         return (
 
             <div className={style.green}>
                 <button onClick={this.ShowAndHide}>{SowHide?'Скрыть список':'Показать список'}</button>
+                <div className={style.skill}>{text?'Опыт работы': 'Нет данных для отображения!'}</div>
                 {SowHide && (
                     <>
-                    <div className={style.skill}>Опыт работы</div>
                     <div className={style.headItem}>
                     {head.map(({column, title}, index) => {
                             if(!this.state.hideColumns.includes(column)) {
