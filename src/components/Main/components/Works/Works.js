@@ -80,7 +80,7 @@ class Works extends React.Component {
         hideColumns: [],
 
         ShowHide: true,
-        textReplace: true
+        textReplace: false
 
 
     };
@@ -120,7 +120,8 @@ class Works extends React.Component {
 
             <div className={style.green}>
                 <button onClick={this.ShowAndHide}>{SowHide?'Скрыть список':'Показать список'}</button>
-                <div className={style.skill}>{text?'Опыт работы': 'Нет данных для отображения!'}</div>
+                <h2 className={style.skill}>Опыт работы</h2>
+                <div >{text?'Нет данных для отображения!': ''}</div>
                 {SowHide && (
                     <>
                     <div className={style.headItem}>
