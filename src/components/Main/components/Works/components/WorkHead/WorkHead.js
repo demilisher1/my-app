@@ -12,7 +12,7 @@ class WorkHead extends React.Component{
         return (
             <div>
                 <div>{this.props.title}</div>
-                <button onClick={this.clickCollumHead}>x</button>
+                <button onClick={this.clickCollumHead}>Удалить</button>
             </div>
         )
     }
