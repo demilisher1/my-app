@@ -79,10 +79,7 @@ class Works extends React.Component {
 
         hideColumns: [],
 
-        ShowHide: true,
-        textReplace: false
-
-
+        visible: true,
     };
 
     removeItem = (index) => {
@@ -95,50 +92,50 @@ class Works extends React.Component {
          })
     };
 
-    removeCollumHead = (index, column) => {
-        let hideColumns = [...this.state.hideColumns];
+    removeCollumHead = (column) => {
+        const hideColumns = [...this.state.hideColumns];
+        const indexHC = hideColumns.indexOf(column);
 
-        hideColumns.push(column);
+        if(indexHC !== -1){
+            hideColumns.splice(indexHC, 1)
+        } else{
+            hideColumns.push(column)
+        }
 
         this.setState({
-            hideColumns: hideColumns,
+            hideColumns
         })
     };
-    ShowAndHide = () => {
+
+    changeVariableTable = () => {
         this.setState({
-            ShowHide:!this.state.ShowHide,
-            textReplace:!this.state.textReplace
-            }
-        )
-    }
+            visible: !this.state.visible,
+        })
+    };
 
     render() {
-        const {head, data} = this.state;
-        const SowHide = this.state.ShowHide
-        const text = this.state.textReplace
-        return (
+        const {head, data, visible, hideColumns} = this.state;
 
+        return (
             <div className={style.green}>
-                <button onClick={this.ShowAndHide}>{SowHide?'Скрыть список':'Показать список'}</button>
+                <button onClick={this.changeVariableTable}>{visible?'Скрыть список':'Показать список'}</button>
                 <h2 className={style.skill}>Опыт работы</h2>
-                <div >{text?'Нет данных для отображения!': ''}</div>
-                {SowHide && (
+                {visible && (
                     <>
-                    <div className={style.headItem}>
-                    {head.map(({column, title}, index) => {
-                            if(!this.state.hideColumns.includes(column)) {
+                        <div className={style.headItem}>
+                            {head.map(({column, title}, index) => {
                                 return <WorksHead
                                     key={index}
                                     column={column}
                                     title={title}
                                     index={index}
                                     removeCollumHead={this.removeCollumHead}
-                                    hideColumns={this.state.hideColumns}
+                                    hideColumns={hideColumns}
                                 />
-                            }
-                        }
-                    )}
-                    </div>
+                                }
+                            )}
+                        </div>
+
                         <div className={style.dataItem}>
                             {data.map(({work, dolsnost, data, id}, index) =>  {
                                 let lesha = style.dataItem2;
@@ -161,17 +158,18 @@ class Works extends React.Component {
                                         dolsnost={dolsnost}
                                         data={data}
                                         removeItem={this.removeItem}
-                                        hideColumns={this.state.hideColumns}
+                                        hideColumns={hideColumns}
                                     />
                                 )
                             })}
                         </div>
                     </>
+                ) || (
+                    <div >Нет данных для отображения!</div>
                 )}
             </div>
         )
     }
 }
-
 
 export default Works;
