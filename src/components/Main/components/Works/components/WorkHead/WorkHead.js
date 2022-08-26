@@ -1,5 +1,6 @@
 import React from "react";
 import style from "../WorkItem/WorkItem.module.css";
+
 // import style from './WorkHead.module.css'
 
 class WorkHead extends React.Component {
@@ -12,7 +13,7 @@ class WorkHead extends React.Component {
             'rgba(125, 134, 142, 1)',
             'white',
         ],
-        lesha: ''
+        changeColors: null
     }
 
     clickCollumHead = () => {
@@ -20,37 +21,35 @@ class WorkHead extends React.Component {
         removeCollumHead(column);
     }
     clickChangeColors = () => {
-        const color = this.state.colors[0];
+        // let currentColor = this.state.changeColors;
+        // if (currentColor === null) {
+        //     currentColor = this.state.colors[0];
+        // } else {
+        //     const index = this.state.colors.indexOf(currentColor);
+        //     if (index < this.state.colors.length -1 ) {
+        //         currentColor = this.state.colors[index + 1]
+        //     } else {
+        //         currentColor = this.state.colors[0]
+        //     }
+        // }
 
-        const variable = '123'
-
-        const test = ['43534', '123', '345'];
-        let result;
-
-        const index = test.indexOf(variable);
-        if (index !== -1) {
-            const nextIndex = index + 1; //2
-            result = test[nextIndex];
+        let currentColor = this.state.changeColors;
+        if (currentColor === null || currentColor === this.state.colors.length -1) {
+            currentColor = -1
         }
-
-
-
-        // result = 345
-        console.log(result)
-
-
-
+        currentColor ++
 
         this.setState({
-            lesha: color
+            changeColors: currentColor
         })
     }
 
     render() {
         const {hideColumns, column} = this.props;
-        const lesha = this.state.lesha
+        const {colors, changeColors} = this.state;
+
         const style = {
-            background: lesha
+            background: colors[changeColors]
         }
 
         return (
