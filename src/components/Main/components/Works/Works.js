@@ -4,83 +4,89 @@ import WorkItem from "./components/WorkItem/WorkItem";
 import WorksHead from "./components/WorkHead/WorkHead";
 
 class Works extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            head: [
+                {
+                    title:  'Порядковый номер',
+                    column: 'number'
+                },
+                {
+                    title:  'Место работы',
+                    column: 'work'
+                },
+                {
+                    title:  'Должность',
+                    column: 'dolsnost'
+                },
+                {
+                    title:  'Дата работы',
+                    column: 'data'
+                },
 
-    state = {
-        head: [
-            {
-                title:  'Порядковый номер',
-                column: 'number'
-            },
-            {
-                title:  'Место работы',
-                column: 'work'
-            },
-            {
-                title:  'Должность',
-                column: 'dolsnost'
-            },
-            {
-                title:  'Дата работы',
-                column: 'data'
-            },
+            ],
 
-        ],
+            data: [
+                {
+                    work: 'ООО ММС',
+                    dolsnost: 'Мастер по изготовлению кухонных гарнитуров',
+                    data: "2003 - 2004",
+                    id: 4
+                },
+                {
+                    work: 'ООО Мастер ПАК',
+                    dolsnost: 'Оператор экструзионного оборудования',
+                    data: "2004 - 2005",
+                    id: 1
+                },
+                {
+                    work: 'ЗАО Инмарко',
+                    dolsnost: 'Грузчик в холодном цехе',
+                    data: "2005 - 2006",
+                    id: 2
+                },
+                {
+                    work: 'ЗАО Манрос-М',
+                    dolsnost: 'Грузчик в теплом складе',
+                    data: "2006 - 2006",
+                    id: 3
+                },
+                {
+                    work: 'ЗАО Экоил',
+                    dolsnost: 'Оператор реакторного блока каталитического дигидрирования',
+                    data: "2007 - 2007",
+                    id: 5
+                },
+                {
+                    work: 'ООО Никс',
+                    dolsnost: 'Инженер ==> далле Начальник СЦ',
+                    data: "2007 - 2009",
+                    id: 6
+                },
+                {
+                    work: 'Одноименное ИП',
+                    dolsnost: 'Директор ==> Инженер микроэлектронщик',
+                    data: "2011 - 2022",
+                    id: 7
+                },
+                {
+                    work: 'Ученик программиста',
+                    dolsnost: 'Да мой господин))',
+                    data: '2022 - now',
+                    id: 8
+                },
+            ],
 
-        data: [
-            {
-                work: 'ООО ММС',
-                dolsnost: 'Мастер по изготовлению кухонных гарнитуров',
-                data: "2003 - 2004",
-                id: 4
-            },
-            {
-                work: 'ООО Мастер ПАК',
-                dolsnost: 'Оператор экструзионного оборудования',
-                data: "2004 - 2005",
-                id: 1
-            },
-            {
-                work: 'ЗАО Инмарко',
-                dolsnost: 'Грузчик в холодном цехе',
-                data: "2005 - 2006",
-                id: 2
-            },
-            {
-                work: 'ЗАО Манрос-М',
-                dolsnost: 'Грузчик в теплом складе',
-                data: "2006 - 2006",
-                id: 3
-            },
-            {
-                work: 'ЗАО Экоил',
-                dolsnost: 'Оператор реакторного блока каталитического дигидрирования',
-                data: "2007 - 2007",
-                id: 5
-            },
-            {
-                work: 'ООО Никс',
-                dolsnost: 'Инженер ==> далле Начальник СЦ',
-                data: "2007 - 2009",
-                id: 6
-            },
-            {
-                work: 'Одноименное ИП',
-                dolsnost: 'Директор ==> Инженер микроэлектронщик',
-                data: "2011 - 2022",
-                id: 7
-            },
-            {
-                work: 'Ученик программиста',
-                dolsnost: 'Да мой господин))',
-                data: '2022 - now',
-                id: 8
-            },
-        ],
+            hideColumns: [],
 
-        hideColumns: [],
+            visible: true,
 
-        visible: true,
-    };
+            searchValue: '',
+        }
+
+        this.state.incomingData = [...this.state.data]
+    }
 
     removeItem = (index) => {
          let arr = [...this.state.data];
@@ -113,13 +119,32 @@ class Works extends React.Component {
         })
     };
 
+    handleChange = (event) => {
+        const value = event.target.value;
+
+        let result = this.state.incomingData.filter((item) => {
+            return item.dolsnost.includes(value)
+        })
+
+        this.setState({
+            searchValue: value,
+            data: result
+        })
+    };
+
     render() {
-        const {head, data, visible, hideColumns} = this.state;
+        const {head, data, visible, hideColumns, searchValue} = this.state;
 
         return (
             <div className={style.green}>
                 <button onClick={this.changeVariableTable}>{visible?'Скрыть список':'Показать список'}</button>
                 <h2 className={style.skill}>Опыт работы</h2>
+                <div>
+                    <label>
+                        Поиск элемента по полю dolsnost
+                        <input type="text" value={searchValue} onChange={this.handleChange} />
+                    </label>
+                </div>
                 {visible && (
                     <>
                         <div className={style.headItem}>

@@ -12,6 +12,7 @@ class WorkHead extends React.Component {
             'beige',
             'rgba(125, 134, 142, 1)',
             'white',
+            '#e5ffe7'
         ],
         changeColors: null
     }
