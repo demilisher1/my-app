@@ -81,8 +81,10 @@ class Works extends React.Component {
             hideColumns: [],
 
             visible: true,
+            visible2: true,
 
             searchValue: '',
+
         }
 
         this.state.incomingData = [...this.state.data]
@@ -125,8 +127,9 @@ class Works extends React.Component {
         let result = this.state.incomingData.filter((item) => {
             return item.dolsnost.includes(value)
         })
+        if (result.length === 0) {
 
-
+        }
         this.setState({
             searchValue: value,
             data: result,
@@ -146,56 +149,64 @@ class Works extends React.Component {
                         <input type="text" value={searchValue} onChange={this.handleChange} />
                     </label>
                 </div>
-                 {visible && (
+                {visible2 && (
                     <>
-                        <div className={style.headItem}>
-                            {head.map(({column, title}, index) => {
-                                return <WorksHead
-                                    key={index}
-                                    column={column}
-                                    title={title}
-                                    index={index}
-                                    removeCollumHead={this.removeCollumHead}
-                                    hideColumns={hideColumns}
-                                />
-                                }
-                            )}
-                        </div>
+                        {visible && (
+                            <>
+                                <div className={style.headItem}>
+                                    {head.map(({column, title}, index) => {
+                                            return <WorksHead
+                                                key={index}
+                                                column={column}
+                                                title={title}
+                                                index={index}
+                                                removeCollumHead={this.removeCollumHead}
+                                                hideColumns={hideColumns}
+                                            />
+                                        }
+                                    )}
+                                </div>
 
-                        <div className={style.dataItem}>
-                            {data.map(({work, dolsnost, data, id}, index) =>  {
-                                let lesha = style.dataItem2;
-                                let evgeniy = index + 1;
-                                if (index %2 !== 0) {
-                                    lesha = lesha + ' ' + style.odd
-                                    evgeniy = `#${evgeniy}`
-                                } else {
-                                    lesha = lesha + ' ' + style.even
-                                    evgeniy = `*${evgeniy}`
-                                }
+                                <div className={style.dataItem}>
+                                    {data.map(({work, dolsnost, data, id}, index) =>  {
+                                        let lesha = style.dataItem2;
+                                        let evgeniy = index + 1;
+                                        if (index %2 !== 0) {
+                                            lesha = lesha + ' ' + style.odd
+                                            evgeniy = `#${evgeniy}`
+                                        } else {
+                                            lesha = lesha + ' ' + style.even
+                                            evgeniy = `*${evgeniy}`
+                                        }
 
-                                return (
-                                    <WorkItem
-                                        key={id}
-                                        lesha={lesha}
-                                        index={index}
-                                        evgeniy={evgeniy}
-                                        work={work}
-                                        dolsnost={dolsnost}
-                                        data={data}
-                                        removeItem={this.removeItem}
-                                        hideColumns={hideColumns}
-                                    />
-                                )
-                            })}
-                        </div>
+                                        return (
+                                            <WorkItem
+                                                key={id}
+                                                lesha={lesha}
+                                                index={index}
+                                                evgeniy={evgeniy}
+                                                work={work}
+                                                dolsnost={dolsnost}
+                                                data={data}
+                                                removeItem={this.removeItem}
+                                                hideColumns={hideColumns}
+                                            />
+                                        )
+                                    })}
+                                </div>
+                            </>
+                        ) ||  (
+                            <div>Нет данных для отображения!</div>
+                        )}
                     </>
                 ) || (
                     <div>Нет данных для отображения!</div>
                 )}
+
             </div>
         )
     }
 }
+
 
 export default Works;

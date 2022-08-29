@@ -7,7 +7,6 @@ class WorkItem extends React.Component {
         this.props.removeItem(this.props.index)
     }
 
-
     render() {
         return (
             <div className={this.props.lesha}  onClick={this.clickDeliteDataItem}>
