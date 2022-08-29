@@ -126,14 +126,15 @@ class Works extends React.Component {
             return item.dolsnost.includes(value)
         })
 
+
         this.setState({
             searchValue: value,
-            data: result
+            data: result,
         })
     };
 
     render() {
-        const {head, data, visible, hideColumns, searchValue} = this.state;
+        const {head, data, visible, hideColumns, searchValue, visible2} = this.state;
 
         return (
             <div className={style.green}>
@@ -145,7 +146,7 @@ class Works extends React.Component {
                         <input type="text" value={searchValue} onChange={this.handleChange} />
                     </label>
                 </div>
-                {visible && (
+                 {visible && (
                     <>
                         <div className={style.headItem}>
                             {head.map(({column, title}, index) => {
@@ -190,7 +191,7 @@ class Works extends React.Component {
                         </div>
                     </>
                 ) || (
-                    <div >Нет данных для отображения!</div>
+                    <div>Нет данных для отображения!</div>
                 )}
             </div>
         )
