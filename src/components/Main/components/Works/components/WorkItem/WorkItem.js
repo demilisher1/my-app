@@ -11,18 +11,18 @@ class WorkItem extends React.Component {
     render() {
         return (
             <div className={this.props.lesha}  onClick={this.clickDeliteDataItem}>
-                {!this.props.hideColumns.includes('number') && (
-                    <div>{this.props.evgeniy}</div>
-                )}
-                {!this.props.hideColumns.includes('work') && (
-                    <div className={style.work}>{this.props.work}</div>
-                )}
-                {!this.props.hideColumns.includes('dolsnost') && (
-                    <div className={style.dolsnost}>{this.props.dolsnost}</div>
-                )}
-                {!this.props.hideColumns.includes('data') && (
-                    <div className={style.data}>{this.props.data}</div>
-                )}
+                <div>
+                    {!this.props.hideColumns.includes('number') && this.props.evgeniy}
+                </div>
+                <div>
+                    {!this.props.hideColumns.includes('work') && this.props.work}
+                </div>
+                <div>
+                    {!this.props.hideColumns.includes('dolsnost') && this.props.dolsnost}
+                </div>
+                <div>
+                    {!this.props.hideColumns.includes('data') && this.props.data}
+                </div>
             </div>
         )
     }
