@@ -125,7 +125,11 @@ class Works extends React.Component {
     handleChange = (event) => {
 
         const result = this.state.incomingData.filter((item) => {
-            return item[this.state.selectValue].includes(event.target.value)
+            if (!item[this.state.selectValue]) {
+                return true
+            } else {
+                return item[this.state.selectValue].includes(event.target.value)
+            }
         })
 
         this.setState({
@@ -160,7 +164,7 @@ class Works extends React.Component {
                     </label>
 
                     <label>
-                        Поиск элемента по полю
+                        Поиск элемента по полю:
                         <input type="text" value={searchValue} onChange={this.handleChange} />
                     </label>
 
