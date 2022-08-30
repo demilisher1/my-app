@@ -81,9 +81,10 @@ class Works extends React.Component {
             hideColumns: [],
 
             visible: true,
-            visible2: true,
 
             searchValue: '',
+
+            selectValue: 'number'
 
         }
 
@@ -91,13 +92,13 @@ class Works extends React.Component {
     }
 
     removeItem = (index) => {
-         let arr = [...this.state.data];
+        let arr = [...this.state.data];
 
-         arr.splice(index, 1)
+        arr.splice(index, 1)
 
-         this.setState({
-             data: arr
-         })
+        this.setState({
+            data: arr
+        })
     };
 
     removeCollumHead = (column) => {
@@ -122,22 +123,27 @@ class Works extends React.Component {
     };
 
     handleChange = (event) => {
-        const value = event.target.value;
 
-        let result = this.state.incomingData.filter((item) => {
-            return item.dolsnost.includes(value)
+        const result = this.state.incomingData.filter((item) => {
+            return item[this.state.selectValue].includes(event.target.value)
         })
-        if (result.length === 0) {
 
-        }
         this.setState({
-            searchValue: value,
-            data: result,
+            searchValue: event.target.value,
+            data: result
         })
     };
 
+
+    handleColumnChange = (event) => {
+
+        this.setState({
+            selectValue: event.target.value,
+        })
+    }
+
     render() {
-        const {head, data, visible, hideColumns, searchValue, visible2} = this.state;
+        const {head, data, visible, hideColumns, searchValue, selectValue} = this.state;
 
         return (
             <div className={style.green}>
@@ -145,64 +151,66 @@ class Works extends React.Component {
                 <h2 className={style.skill}>Опыт работы</h2>
                 <div>
                     <label>
-                        Поиск элемента по полю dolsnost
+                        Фильтруемое поле
+                        <select value={selectValue} onChange={this.handleColumnChange}>
+                            {head.map(item => (
+                                <option key={item.column} value={item.column}>{item.title}</option>
+                            ))}
+                        </select>
+                    </label>
+
+                    <label>
+                        Поиск элемента по полю
                         <input type="text" value={searchValue} onChange={this.handleChange} />
                     </label>
+
                 </div>
-                {visible2 && (
+                {visible && data.length  && (
                     <>
-                        {visible && (
-                            <>
-                                <div className={style.headItem}>
-                                    {head.map(({column, title}, index) => {
-                                            return <WorksHead
-                                                key={index}
-                                                column={column}
-                                                title={title}
-                                                index={index}
-                                                removeCollumHead={this.removeCollumHead}
-                                                hideColumns={hideColumns}
-                                            />
-                                        }
-                                    )}
-                                </div>
+                        <div className={style.headItem}>
+                            {head.map(({column, title}, index) => {
+                                    return <WorksHead
+                                        key={index}
+                                        column={column}
+                                        title={title}
+                                        index={index}
+                                        removeCollumHead={this.removeCollumHead}
+                                        hideColumns={hideColumns}
+                                    />
+                                }
+                            )}
+                        </div>
+                        <div className={style.dataItem}>
+                            {data.map(({work, dolsnost, data, id}, index) =>  {
+                                let lesha = style.dataItem2;
+                                let evgeniy = index + 1;
+                                if (index %2 !== 0) {
+                                    lesha = lesha + ' ' + style.odd
+                                    evgeniy = `#${evgeniy}`
+                                } else {
+                                    lesha = lesha + ' ' + style.even
+                                    evgeniy = `*${evgeniy}`
+                                }
 
-                                <div className={style.dataItem}>
-                                    {data.map(({work, dolsnost, data, id}, index) =>  {
-                                        let lesha = style.dataItem2;
-                                        let evgeniy = index + 1;
-                                        if (index %2 !== 0) {
-                                            lesha = lesha + ' ' + style.odd
-                                            evgeniy = `#${evgeniy}`
-                                        } else {
-                                            lesha = lesha + ' ' + style.even
-                                            evgeniy = `*${evgeniy}`
-                                        }
-
-                                        return (
-                                            <WorkItem
-                                                key={id}
-                                                lesha={lesha}
-                                                index={index}
-                                                evgeniy={evgeniy}
-                                                work={work}
-                                                dolsnost={dolsnost}
-                                                data={data}
-                                                removeItem={this.removeItem}
-                                                hideColumns={hideColumns}
-                                            />
-                                        )
-                                    })}
-                                </div>
-                            </>
-                        ) ||  (
-                            <div>Нет данных для отображения!</div>
-                        )}
+                                return (
+                                    <WorkItem
+                                        key={id}
+                                        lesha={lesha}
+                                        index={index}
+                                        evgeniy={evgeniy}
+                                        work={work}
+                                        dolsnost={dolsnost}
+                                        data={data}
+                                        removeItem={this.removeItem}
+                                        hideColumns={hideColumns}
+                                    />
+                                )
+                            })}
+                        </div>
                     </>
-                ) || (
+                ) ||  (
                     <div>Нет данных для отображения!</div>
                 )}
-
             </div>
         )
     }
