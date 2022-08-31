@@ -165,7 +165,11 @@ class Works extends React.Component {
 
                     <label>
                         Поиск элемента по полю:
-                        <input type="text" value={searchValue} onChange={this.handleChange} />
+                        <input
+                            type="text"
+                            value={searchValue}
+                            onChange={this.handleChange}
+                        />
                     </label>
 
                 </div>
