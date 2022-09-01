@@ -3,6 +3,8 @@ import style from './Works.module.css';
 import WorkItem from "./components/WorkItem/WorkItem";
 import WorksHead from "./components/WorkHead/WorkHead";
 
+import Label from "./../../../common/Label/Label";
+
 class Works extends React.Component {
     constructor(props) {
         super(props);
@@ -154,23 +156,20 @@ class Works extends React.Component {
                 <button onClick={this.changeVariableTable}>{visible?'Скрыть список':'Показать список'}</button>
                 <h2 className={style.skill}>Опыт работы</h2>
                 <div>
-                    <label>
-                        Фильтруемое поле
+                    <Label title="Фильтруемое поле" >
                         <select value={selectValue} onChange={this.handleColumnChange}>
                             {head.map(item => (
                                 <option key={item.column} value={item.column}>{item.title}</option>
                             ))}
                         </select>
-                    </label>
-
-                    <label>
-                        Поиск элемента по полю:
+                    </Label>
+                    <Label  title="Поиск элемента по полю">
                         <input
                             type="text"
                             value={searchValue}
                             onChange={this.handleChange}
                         />
-                    </label>
+                    </Label>
 
                 </div>
                 {visible && data.length  && (
