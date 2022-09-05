@@ -4,6 +4,9 @@ import WorkItem from "./components/WorkItem/WorkItem";
 import WorksHead from "./components/WorkHead/WorkHead";
 
 import Label from "./../../../common/Label/Label";
+import Input from "../../../common/Input/Input";
+import Button from "../../../common/Button/Button";
+import Select from "../../../common/Select/Select";
 
 class Works extends React.Component {
     constructor(props) {
@@ -163,6 +166,7 @@ class Works extends React.Component {
                             ))}
                         </select>
                     </Label>
+
                     <Label  title="Поиск элемента по полю">
                         <input
                             type="text"
