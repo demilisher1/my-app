@@ -1,23 +1,22 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import style from './Input.module.css'
-import Label from "../Label/Label";
+
 
 
 class Input extends React.Component{
     render() {
-        const {type, onChange, children} = this.props;
+        console.log(this.props)
+        const { handleChange} = this.props;
         return (
-            <Label>
-                {children}
-            </Label>
+            <input onChange={handleChange} className={style.root}/>
         );
     }
 }
-Label.propTypes = {
-    type: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-    children: PropTypes.node
+
+Input.propTypes = {
+    handleChange: PropTypes.func.isRequired,
+    searchValue: PropTypes.string.isRequired
 };
 
 export default Input;

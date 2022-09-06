@@ -89,7 +89,7 @@ class Works extends React.Component {
 
             searchValue: '',
 
-            selectValue: 'number'
+            selectValue: 'work'
 
         }
 
@@ -144,8 +144,7 @@ class Works extends React.Component {
     };
 
 
-    handleColumnChange = (event) => {
-
+    handleChangeSelect = (event) => {
         this.setState({
             selectValue: event.target.value,
         })
@@ -156,25 +155,25 @@ class Works extends React.Component {
 
         return (
             <div className={style.green}>
-                <button onClick={this.changeVariableTable}>{visible?'Скрыть список':'Показать список'}</button>
+                <Button
+                    changeVariableTable={this.changeVariableTable}
+                    visible={visible}
+                />
                 <h2 className={style.skill}>Опыт работы</h2>
                 <div>
                     <Label title="Фильтруемое поле" >
-                        <select value={selectValue} onChange={this.handleColumnChange}>
-                            {head.map(item => (
-                                <option key={item.column} value={item.column}>{item.title}</option>
-                            ))}
-                        </select>
-                    </Label>
-
-                    <Label  title="Поиск элемента по полю">
-                        <input
-                            type="text"
-                            value={searchValue}
-                            onChange={this.handleChange}
+                        <Select
+                            selectValue={selectValue}
+                            handleChangeSelect={this.handleChangeSelect}
+                            head={head}
                         />
                     </Label>
-
+                    <Label  title="Поиск элемента по полю">
+                        <Input
+                            searchValue={searchValue}
+                            handleChange={this.handleChange}
+                        />
+                    </Label>
                 </div>
                 {visible && data.length  && (
                     <>
