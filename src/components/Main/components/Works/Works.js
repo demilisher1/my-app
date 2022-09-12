@@ -2,12 +2,10 @@ import React from "react";
 import style from './Works.module.css';
 import WorkItem from "./components/WorkItem/WorkItem";
 import WorksHead from "./components/WorkHead/WorkHead";
-
-import Label from "./../../../common/Label/Label";
-import Input from "../../../common/Input/Input";
-import Button from "../../../common/Button/Button";
-import Select from "../../../common/Select/Select";
 import WorksFilter from "./components/WorksFilter/WorksFilter";
+
+import Button from "../../../common/Button/Button";
+
 
 class Works extends React.Component {
     constructor(props) {
@@ -124,21 +122,6 @@ class Works extends React.Component {
         })
     };
 
-    handleChange = (value) => {
-        this.setState({
-            searchValue: value,
-            data: this.filterIncomingData(this.state.selectValue, value)
-        })
-    };
-
-
-    handleChangeSelect = (value) => {
-        this.setState({
-            selectValue: value,
-            data: this.filterIncomingData(value, this.state.searchValue)
-        })
-    }
-
     filterIncomingData = (selectValue, searchValue) => {
         return this.state.incomingData.filter((item) => {
             if (!item[selectValue]) {
@@ -158,11 +141,8 @@ class Works extends React.Component {
                 </Button>
                 <h2 className={style.skill}>Опыт работы</h2>
                 <WorksFilter
-                    value={selectValue}
-                    option={head}
-                    valueSearch={searchValue}
-                    input={this.handleChange}
-                    select={this.handleChangeSelect}
+                    filterIncomingData={this.filterIncomingData}
+                    data={data}
                 />
                 {visible && data.length  && (
                     <>

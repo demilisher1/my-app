@@ -4,28 +4,42 @@ import style from './WorksFilter.module.css';
 import Label from "../../../../../common/Label/Label";
 import Select from "../../../../../common/Select/Select";
 import Input from "../../../../../common/Input/Input";
-import PropTypes from "prop-types";
 
 class WorksFilter extends React.Component {
     state = {
         searchValue: '',
         selectValue: 'work'
-    }
+    };
+
+    handleChange = (value) => {
+        this.setState({
+            searchValue: value,
+            data: this.filterIncomingData(this.state.selectValue, value)
+        })
+    };
+
+    handleChangeSelect = (value) => {
+        this.setState({
+            selectValue: value,
+            data: this.filterIncomingData(value, this.state.searchValue)
+        })
+    };
 
     render() {
-        const {value, option, valueSearch, input, select} = this.props;
+        const {} = this.props;
+        const {searchValue, selectValue} = this.state;
         return(
             <div>
                 <Label title="Фильтруемое поле" >
                     <Select
-                        value={value}
+                        value={selectValue}
                         handleChange={select}
                         options={option}
                     />
                 </Label>
                 <Label title="Поиск элемента по полю">
                     <Input
-                        valueSearch={valueSearch}
+                        valueSearch={searchValue}
                         handleChange={input}
                     />
                 </Label>
@@ -33,14 +47,5 @@ class WorksFilter extends React.Component {
         );
     }
 }
-
-WorksFilter.propTypes = {
-    value: PropTypes.string.isRequired,
-    option: PropTypes.array.isRequired,
-    valueSearch: PropTypes.func.isRequired,
-    input: PropTypes.func.isRequired,
-    select: PropTypes.func.isRequired
-
-};
 
 export default WorksFilter;
