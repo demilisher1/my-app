@@ -7,6 +7,7 @@ import Label from "./../../../common/Label/Label";
 import Input from "../../../common/Input/Input";
 import Button from "../../../common/Button/Button";
 import Select from "../../../common/Select/Select";
+import WorksFilter from "./components/WorksFilter/WorksFilter";
 
 class Works extends React.Component {
     constructor(props) {
@@ -87,10 +88,6 @@ class Works extends React.Component {
 
             visible: true,
 
-            searchValue: '',
-
-            selectValue: 'work'
-
         }
 
         this.state.incomingData = [...this.state.data]
@@ -127,54 +124,46 @@ class Works extends React.Component {
         })
     };
 
-    handleChange = (event) => {
-
-        const result = this.state.incomingData.filter((item) => {
-            if (!item[this.state.selectValue]) {
-                return true
-            } else {
-                return item[this.state.selectValue].includes(event.target.value)
-            }
-        })
-
+    handleChange = (value) => {
         this.setState({
-            searchValue: event.target.value,
-            data: result
+            searchValue: value,
+            data: this.filterIncomingData(this.state.selectValue, value)
         })
     };
 
 
-    handleChangeSelect = (event) => {
+    handleChangeSelect = (value) => {
         this.setState({
-            selectValue: event.target.value,
+            selectValue: value,
+            data: this.filterIncomingData(value, this.state.searchValue)
+        })
+    }
+
+    filterIncomingData = (selectValue, searchValue) => {
+        return this.state.incomingData.filter((item) => {
+            if (!item[selectValue]) {
+                return true
+            } else {
+                return item[selectValue].toLowerCase().includes(searchValue.toLowerCase())
+            }
         })
     }
 
     render() {
         const {head, data, visible, hideColumns, searchValue, selectValue} = this.state;
-
         return (
             <div className={style.green}>
-                <Button
-                    changeVariableTable={this.changeVariableTable}
-                    visible={visible}
-                />
+                <Button handleClick={this.changeVariableTable}>
+                    {visible?'Скрыть список':'Показать список'}
+                </Button>
                 <h2 className={style.skill}>Опыт работы</h2>
-                <div>
-                    <Label title="Фильтруемое поле" >
-                        <Select
-                            selectValue={selectValue}
-                            handleChangeSelect={this.handleChangeSelect}
-                            head={head}
-                        />
-                    </Label>
-                    <Label  title="Поиск элемента по полю">
-                        <Input
-                            searchValue={searchValue}
-                            handleChange={this.handleChange}
-                        />
-                    </Label>
-                </div>
+                <WorksFilter
+                    value={selectValue}
+                    option={head}
+                    valueSearch={searchValue}
+                    input={this.handleChange}
+                    select={this.handleChangeSelect}
+                />
                 {visible && data.length  && (
                     <>
                         <div className={style.headItem}>

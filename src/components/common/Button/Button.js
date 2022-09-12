@@ -4,18 +4,18 @@ import style from "./Button.module.css"
 
 class Button extends React.Component{
     render() {
-        const {changeVariableTable, visible} = this.props;
+        const {handleClick, children} = this.props;
         return (
-            <button onClick={changeVariableTable} className={style.root}>
-                {visible?'Скрыть список':'Показать список'}
+            <button onClick={handleClick} className={style.root}>
+                {children}
             </button>
         );
     }
 }
 
 Button.propTypes = {
-    changeVariableTable: PropTypes.func.isRequired,
-    visible: PropTypes.bool.isRequired
+    handleClick: PropTypes.func.isRequired,
+    children: PropTypes.node,
 }
 
 export default Button

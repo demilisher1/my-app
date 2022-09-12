@@ -2,12 +2,17 @@ import React from "react";
 import PropTypes from "prop-types"
 import style from "./Select.module.css"
 
-class Select extends React.Component{
+class Select extends React.Component {
+
+    handleChange = event => {
+        this.props.handleChange(event.target.value, event)
+    }
+
     render() {
-        const {head, selectValue, handleChangeSelect} = this.props;
+        const {options, value} = this.props;
         return (
-            <select value={selectValue} onChange={handleChangeSelect} className={style.root}>
-                {head.map(item => (
+            <select value={value} onChange={this.handleChange} className={style.root}>
+                {options.map(item => (
                     <option key={item.column} value={item.column}>
                         {item.title}
                     </option>
@@ -18,8 +23,9 @@ class Select extends React.Component{
 }
 
 Select.propTypes = {
-    selectValue: PropTypes.string.isRequired,
-    handleChangeSelect: PropTypes.func.isRequired,
-    head: PropTypes.array.isRequired
-}
+    value: PropTypes.string.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    options: PropTypes.array.isRequired
+};
+
 export default Select;
