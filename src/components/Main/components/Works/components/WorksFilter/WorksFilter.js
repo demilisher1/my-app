@@ -26,21 +26,21 @@ class WorksFilter extends React.Component {
     };
 
     render() {
-        const {} = this.props;
+        const {worksHead} = this.props;
         const {searchValue, selectValue} = this.state;
         return(
             <div>
                 <Label title="Фильтруемое поле" >
                     <Select
                         value={selectValue}
-                        handleChange={select}
-                        options={option}
+                        handleChange={this.handleChangeSelect}
+                        options={worksHead}
                     />
                 </Label>
                 <Label title="Поиск элемента по полю">
                     <Input
-                        valueSearch={searchValue}
-                        handleChange={input}
+                        value={searchValue}
+                        handleChange={this.handleChange}
                     />
                 </Label>
             </div>

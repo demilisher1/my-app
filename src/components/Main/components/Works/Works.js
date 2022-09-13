@@ -133,7 +133,7 @@ class Works extends React.Component {
     }
 
     render() {
-        const {head, data, visible, hideColumns, searchValue, selectValue} = this.state;
+        const {head, data, visible, hideColumns} = this.state;
         return (
             <div className={style.green}>
                 <Button handleClick={this.changeVariableTable}>
@@ -142,7 +142,7 @@ class Works extends React.Component {
                 <h2 className={style.skill}>Опыт работы</h2>
                 <WorksFilter
                     filterIncomingData={this.filterIncomingData}
-                    data={data}
+                    worksHead={head}
                 />
                 {visible && data.length  && (
                     <>

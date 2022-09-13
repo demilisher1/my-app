@@ -10,6 +10,7 @@ class Select extends React.Component {
 
     render() {
         const {options, value} = this.props;
+
         return (
             <select value={value} onChange={this.handleChange} className={style.root}>
                 {options.map(item => (
