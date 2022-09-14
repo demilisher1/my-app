@@ -5,12 +5,12 @@ import style from "./Select.module.css"
 class Select extends React.Component {
 
     handleChange = event => {
-        this.props.handleChange(event.target.value, event)
+        const { handleChange, field } = this.props
+        handleChange(event.target.value, field, event)
     }
 
     render() {
         const {options, value} = this.props;
-
         return (
             <select value={value} onChange={this.handleChange} className={style.root}>
                 {options.map(item => (
@@ -26,7 +26,8 @@ class Select extends React.Component {
 Select.propTypes = {
     value: PropTypes.string.isRequired,
     handleChange: PropTypes.func.isRequired,
-    options: PropTypes.array.isRequired
+    options: PropTypes.array.isRequired,
+    field: PropTypes.string
 };
 
 export default Select;

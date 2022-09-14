@@ -122,13 +122,9 @@ class Works extends React.Component {
         })
     };
 
-    filterIncomingData = (selectValue, searchValue) => {
-        return this.state.incomingData.filter((item) => {
-            if (!item[selectValue]) {
-                return true
-            } else {
-                return item[selectValue].toLowerCase().includes(searchValue.toLowerCase())
-            }
+    changeDataState = (data) => {
+        this.setState({
+            data
         })
     }
 
@@ -141,8 +137,10 @@ class Works extends React.Component {
                 </Button>
                 <h2 className={style.skill}>Опыт работы</h2>
                 <WorksFilter
-                    filterIncomingData={this.filterIncomingData}
                     worksHead={head}
+                    worksData={data}
+                    array={this.state.incomingData}
+                    changeDataState={this.changeDataState}
                 />
                 {visible && data.length  && (
                     <>

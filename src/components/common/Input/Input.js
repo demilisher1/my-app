@@ -2,15 +2,31 @@ import React from "react";
 import PropTypes from 'prop-types';
 import style from './Input.module.css'
 
-
+/**
+ * Это Inpit
+ *
+ * @param {function} handleChange Вызфыветчсмчпвап
+ * @param {string} value dsfsdf
+ * @param {string} field dsfsdf
+ * @public
+ */
 class Input extends React.Component{
 
+    /**
+     * Метод handleChange реагирует на изменения в инпуте и оптравляет данные в функцию handleChange принимаемую в пропсах
+     *
+     * @param {object} event
+     *
+     * @return void
+     */
     handleChange = event => {
-        this.props.handleChange(event.target.value, event)
+        const { handleChange, field } = this.props
+        handleChange(event.target.value, field, event)
     }
 
     render() {
-        const { value } = this.props;
+        const {value} = this.props;
+
         return (
             <input onChange={this.handleChange} className={style.root} value={value}/>
         );
@@ -19,7 +35,8 @@ class Input extends React.Component{
 
 Input.propTypes = {
     handleChange: PropTypes.func.isRequired,
-    value: PropTypes.string.isRequired
+    value: PropTypes.string.isRequired,
+    field: PropTypes.string
 };
 
 export default Input;

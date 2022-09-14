@@ -7,39 +7,55 @@ import Input from "../../../../../common/Input/Input";
 
 class WorksFilter extends React.Component {
     state = {
+        /** searchValue это вэлью для инпута. */
         searchValue: '',
+        /** selectValue это вэлью для селекта. */
         selectValue: 'work'
     };
 
-    handleChange = (value) => {
-        this.setState({
-            searchValue: value,
-            data: this.filterIncomingData(this.state.selectValue, value)
-        })
-    };
+    filterIncomingData = (selectValue, searchValue) => {
+        const data = this.props.array.filter((item) => {
+            if (!item[selectValue]) {
+                return true
+            } else {
+                return item[selectValue].toLowerCase().includes(searchValue.toLowerCase())
+            }
+        });
 
-    handleChangeSelect = (value) => {
+        this.props.changeDataState(data)
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevState !== this.state){
+            this.filterIncomingData(this.state.selectValue, this.state.searchValue);
+        }
+    }
+
+    handleChange = (value, field) => {
         this.setState({
-            selectValue: value,
-            data: this.filterIncomingData(value, this.state.searchValue)
+            [field]: value
         })
     };
 
     render() {
         const {worksHead} = this.props;
         const {searchValue, selectValue} = this.state;
+
         return(
             <div>
                 <Label title="Фильтруемое поле" >
                     <Select
                         value={selectValue}
-                        handleChange={this.handleChangeSelect}
                         options={worksHead}
+                        field="selectValue"
+                        handleChange={this.handleChange}
+
                     />
                 </Label>
                 <Label title="Поиск элемента по полю">
                     <Input
                         value={searchValue}
+                        field="searchValue"
                         handleChange={this.handleChange}
                     />
                 </Label>
