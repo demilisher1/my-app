@@ -1,11 +1,8 @@
 import React from "react";
 import style from './Works.module.css';
-import WorkItem from "./components/WorkItem/WorkItem";
-import WorksHead from "./components/WorkHead/WorkHead";
 import WorksFilter from "./components/WorksFilter/WorksFilter";
-
+import WorksTable from "./components/WorksTable/WorksTable";
 import Button from "../../../common/Button/Button";
-
 
 class Works extends React.Component {
     constructor(props) {
@@ -30,7 +27,6 @@ class Works extends React.Component {
                 },
 
             ],
-
             data: [
                 {
                     work: 'ООО ММС',
@@ -81,13 +77,8 @@ class Works extends React.Component {
                     id: 8
                 },
             ],
-
-            hideColumns: [],
-
             visible: true,
-
         }
-
         this.state.incomingData = [...this.state.data]
     }
 
@@ -101,35 +92,19 @@ class Works extends React.Component {
         })
     };
 
-    removeCollumHead = (column) => {
-        const hideColumns = [...this.state.hideColumns];
-        const indexHC = hideColumns.indexOf(column);
-
-        if(indexHC !== -1){
-            hideColumns.splice(indexHC, 1)
-        } else{
-            hideColumns.push(column)
-        }
-
+    changeDataState = (data) => {
         this.setState({
-            hideColumns
+            data
         })
-    };
-
+    }
     changeVariableTable = () => {
         this.setState({
             visible: !this.state.visible,
         })
     };
 
-    changeDataState = (data) => {
-        this.setState({
-            data
-        })
-    }
-
     render() {
-        const {head, data, visible, hideColumns} = this.state;
+        const {head, data, visible} = this.state;
         return (
             <div className={style.green}>
                 <Button handleClick={this.changeVariableTable}>
@@ -138,60 +113,13 @@ class Works extends React.Component {
                 <h2 className={style.skill}>Опыт работы</h2>
                 <WorksFilter
                     worksHead={head}
-                    worksData={data}
-                    array={this.state.incomingData}
+                    incomingData={this.state.incomingData}
                     changeDataState={this.changeDataState}
                 />
-                {visible && data.length  && (
-                    <>
-                        <div className={style.headItem}>
-                            {head.map(({column, title}, index) => {
-                                    return <WorksHead
-                                        key={index}
-                                        column={column}
-                                        title={title}
-                                        index={index}
-                                        removeCollumHead={this.removeCollumHead}
-                                        hideColumns={hideColumns}
-                                    />
-                                }
-                            )}
-                        </div>
-                        <div className={style.dataItem}>
-                            {data.map(({work, dolsnost, data, id}, index) =>  {
-                                let lesha = style.dataItem2;
-                                let evgeniy = index + 1;
-                                if (index %2 !== 0) {
-                                    lesha = lesha + ' ' + style.odd
-                                    evgeniy = `#${evgeniy}`
-                                } else {
-                                    lesha = lesha + ' ' + style.even
-                                    evgeniy = `*${evgeniy}`
-                                }
-
-                                return (
-                                    <WorkItem
-                                        key={id}
-                                        lesha={lesha}
-                                        index={index}
-                                        evgeniy={evgeniy}
-                                        work={work}
-                                        dolsnost={dolsnost}
-                                        data={data}
-                                        removeItem={this.removeItem}
-                                        hideColumns={hideColumns}
-                                    />
-                                )
-                            })}
-                        </div>
-                    </>
-                ) ||  (
-                    <div>Нет данных для отображения!</div>
-                )}
+                <WorksTable/>
             </div>
         )
     }
 }
-
 
 export default Works;

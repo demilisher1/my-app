@@ -1,9 +1,8 @@
 import React from 'react';
-import style from './WorksFilter.module.css';
-
 import Label from "../../../../../common/Label/Label";
 import Select from "../../../../../common/Select/Select";
 import Input from "../../../../../common/Input/Input";
+import style from './WorksFilter.module.css';
 
 class WorksFilter extends React.Component {
     state = {
@@ -14,7 +13,7 @@ class WorksFilter extends React.Component {
     };
 
     filterIncomingData = (selectValue, searchValue) => {
-        const data = this.props.array.filter((item) => {
+        const data = this.props.incomingData.filter((item) => {
             if (!item[selectValue]) {
                 return true
             } else {

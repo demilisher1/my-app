@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import style from './Input.module.css'
 
 /**
- * Это Inpit
+ * Это Input
  *
  * @param {function} handleChange Вызфыветчсмчпвап
  * @param {string} value dsfsdf
@@ -26,7 +26,6 @@ class Input extends React.Component{
 
     render() {
         const {value} = this.props;
-
         return (
             <input onChange={this.handleChange} className={style.root} value={value}/>
         );

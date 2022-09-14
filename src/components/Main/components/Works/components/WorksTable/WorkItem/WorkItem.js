@@ -1,5 +1,7 @@
 import React from "react";
 import style from './WorkItem.module.css'
+import PropTypes from "prop-types";
+import Button from "../../../../../../common/Button/Button";
 
 class WorkItem extends React.Component {
 
