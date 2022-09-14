@@ -1,50 +1,33 @@
 import React from "react";
-import style from './WorksTable.module';
+import style from './WorksTable.module.css';
 import WorksHead from "./WorkHead/WorkHead";
 import WorkItem from "./WorkItem/WorkItem";
+import PropTypes from "prop-types";
+
 
 class WorksTable extends React.Component{
-    state = {
-        hideColumns: [],
-    };
-
-
-    removeCollumHead = (column) => {
-        const hideColumns = [...this.state.hideColumns];
-        const indexHC = hideColumns.indexOf(column);
-
-        if(indexHC !== -1){
-            hideColumns.splice(indexHC, 1)
-        } else{
-            hideColumns.push(column)
-        }
-
-        this.setState({
-            hideColumns
-        })
-    };
 
     render() {
-        console.log(this.props)
+        const {worksHead, worksData, removeColumnHead, visible, hideColumn, removeItem} = this.props
         return (
             <div>
-                {visible && data.length  && (
+                {visible &&  (
                     <>
                         <div className={style.headItem}>
-                            {head.map(({column, title}, index) => {
+                            {worksHead.map(({column, title}, index) => {
                                     return <WorksHead
                                         key={index}
                                         column={column}
                                         title={title}
                                         index={index}
-                                        removeCollumHead={this.removeCollumHead}
-                                        hideColumns={hideColumns}
+                                        removeCollumHead={removeColumnHead}
+                                        hideColumns={hideColumn}
                                     />
                                 }
                             )}
                         </div>
-                        <div className={style.dataItem}>
-                            {data.map(({work, dolsnost, data, id}, index) =>  {
+                        <div>
+                            {worksData.map(({work, dolsnost, data, id}, index) =>  {
                                 let lesha = style.dataItem2;
                                 let evgeniy = index + 1;
                                 if (index %2 !== 0) {
@@ -54,7 +37,6 @@ class WorksTable extends React.Component{
                                     lesha = lesha + ' ' + style.even
                                     evgeniy = `*${evgeniy}`
                                 }
-
                                 return (
                                     <WorkItem
                                         key={id}
@@ -64,8 +46,8 @@ class WorksTable extends React.Component{
                                         work={work}
                                         dolsnost={dolsnost}
                                         data={data}
-                                        removeItem={this.removeItem}
-                                        hideColumns={hideColumns}
+                                        removeItem={removeItem}
+                                        hideColumns={hideColumn}
                                     />
                                 )
                             })}
@@ -79,5 +61,13 @@ class WorksTable extends React.Component{
         )
     }
 }
-
+WorksTable.propTypes = {
+    worksHead: PropTypes.array.isRequired,
+    worksData: PropTypes.array.isRequired,
+    removeColumnHead: PropTypes.func.isRequired,
+    visible: PropTypes.bool.isRequired,
+    field: PropTypes.string,
+    hideColumn: PropTypes.array.isRequired,
+    removeItem: PropTypes.func.isRequired
+}
 export default WorksTable;

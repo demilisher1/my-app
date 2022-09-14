@@ -78,9 +78,25 @@ class Works extends React.Component {
                 },
             ],
             visible: true,
+            hideColumns: []
         }
         this.state.incomingData = [...this.state.data]
     }
+
+    removeColumnHead = (column) => {
+        const hideColumns = [...this.state.hideColumns];
+        const indexHC = hideColumns.indexOf(column);
+
+        if(indexHC !== -1){
+            hideColumns.splice(indexHC, 1)
+        } else{
+            hideColumns.push(column)
+        }
+
+        this.setState({
+            hideColumns
+        })
+    };
 
     removeItem = (index) => {
         let arr = [...this.state.data];
@@ -104,7 +120,7 @@ class Works extends React.Component {
     };
 
     render() {
-        const {head, data, visible} = this.state;
+        const {head, data, visible, hideColumns} = this.state;
         return (
             <div className={style.green}>
                 <Button handleClick={this.changeVariableTable}>
@@ -116,7 +132,14 @@ class Works extends React.Component {
                     incomingData={this.state.incomingData}
                     changeDataState={this.changeDataState}
                 />
-                <WorksTable/>
+                <WorksTable
+                    worksHead={head}
+                    worksData={data}
+                    hideColumn={hideColumns}
+                    visible={visible}
+                    removeColumnHead={this.removeColumnHead}
+                    removeItem={this.removeItem}
+                />
             </div>
         )
     }

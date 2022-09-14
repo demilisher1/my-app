@@ -9,29 +9,3 @@
     font-size: 1.5em;
     font-weight: bold;
 }
-.headItem  {
-    display: grid;
-    grid-template-columns: 1fr 1fr 2fr 1fr;
-    margin-bottom: 12px;
-}
-.dataItem2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 2fr 1fr;
-    margin-bottom: 3px;
-
-}
-.odd {
-    background: aqua;
-}
-.even {
-    background: peachpuff;
-}
-/*.work {*/
-/*    margin-bottom: 3px;*/
-/*}*/
-/*.dolsnost {*/
-/*    margin-bottom: 3px;*/
-/*}*/
-/*.data {*/
-/*    margin-bottom: 3px;*/
-/*}*/

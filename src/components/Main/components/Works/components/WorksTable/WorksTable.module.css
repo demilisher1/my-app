@@ -1,0 +1,16 @@
+.headItem  {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+    margin-bottom: 12px;
+}
+.dataItem2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+    margin-bottom: 3px;
+}
+.odd {
+    background: aqua;
+}
+.even {
+    background: peachpuff;
+}

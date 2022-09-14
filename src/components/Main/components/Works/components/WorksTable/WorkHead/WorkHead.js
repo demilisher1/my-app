@@ -20,19 +20,7 @@ class WorkHead extends React.Component {
         removeCollumHead(column);
     }
     clickChangeColors = () => {
-        // let currentColor = this.state.changeColors;
-        // if (currentColor === null) {
-        //     currentColor = this.state.colors[0];
-        // } else {
-        //     const index = this.state.colors.indexOf(currentColor);
-        //     if (index < this.state.colors.length -1 ) {
-        //         currentColor = this.state.colors[index + 1]
-        //     } else {
-        //         currentColor = this.state.colors[0]
-        //     }
-        // }
-
-        let currentColor = this.state.changeColors;
+            let currentColor = this.state.changeColors;
         if (currentColor === null || currentColor === this.state.colors.length -1) {
             currentColor = -1
         }
