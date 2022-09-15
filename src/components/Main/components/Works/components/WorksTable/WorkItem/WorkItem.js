@@ -1,5 +1,6 @@
 import React from "react";
 import style from './WorkItem.module.css'
+import {connect} from "react-redux";
 
 class WorkItem extends React.Component {
 
@@ -27,4 +28,10 @@ class WorkItem extends React.Component {
     }
 }
 
-export default WorkItem;
+function mapStateToProps(state) {
+    return {
+        hideColumns: state.worksTable.hideColumns
+    }
+}
+
+export default connect(mapStateToProps)(WorkItem)

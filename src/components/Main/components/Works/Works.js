@@ -1,8 +1,12 @@
 import React from "react";
+
+import {connect} from 'react-redux'
 import style from './Works.module.css';
 import WorksFilter from "./components/WorksFilter/WorksFilter";
 import WorksTable from "./components/WorksTable/WorksTable";
 import Button from "../../../common/Button/Button";
+
+import {changeVisible} from "../../../../features/worksTable/worksTable";
 
 class Works extends React.Component {
     constructor(props) {
@@ -77,26 +81,9 @@ class Works extends React.Component {
                     id: 8
                 },
             ],
-            visible: true,
-            hideColumns: []
         }
         this.state.incomingData = [...this.state.data]
     }
-
-    removeColumnHead = (column) => {
-        const hideColumns = [...this.state.hideColumns];
-        const indexHC = hideColumns.indexOf(column);
-
-        if(indexHC !== -1){
-            hideColumns.splice(indexHC, 1)
-        } else{
-            hideColumns.push(column)
-        }
-
-        this.setState({
-            hideColumns
-        })
-    };
 
     removeItem = (index) => {
         let arr = [...this.state.data];
@@ -114,17 +101,16 @@ class Works extends React.Component {
         })
     }
     changeVariableTable = () => {
-        this.setState({
-            visible: !this.state.visible,
-        })
+        this.props.changeVisible()
     };
 
     render() {
-        const {head, data, visible, hideColumns} = this.state;
+        const {head, data} = this.state;
+        const {visibleTable} = this.props;
         return (
             <div className={style.green}>
                 <Button handleClick={this.changeVariableTable}>
-                    {visible?'Скрыть список':'Показать список'}
+                    {visibleTable?'Скрыть список':'Показать список'}
                 </Button>
                 <h2 className={style.skill}>Опыт работы</h2>
                 <WorksFilter
@@ -135,9 +121,6 @@ class Works extends React.Component {
                 <WorksTable
                     worksHead={head}
                     worksData={data}
-                    hideColumn={hideColumns}
-                    visible={visible}
-                    removeColumnHead={this.removeColumnHead}
                     removeItem={this.removeItem}
                 />
             </div>
@@ -145,4 +128,16 @@ class Works extends React.Component {
     }
 }
 
-export default Works;
+function mapStateToProps(state) {
+    return {
+        visibleTable: state.worksTable.visible,
+        hideColumns: state.worksTable.hideColumns,
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeVisible: (event) => dispatch(changeVisible())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Works)

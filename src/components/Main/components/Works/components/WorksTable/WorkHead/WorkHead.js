@@ -1,4 +1,6 @@
 import React from "react";
+import {removeColumnHead} from "../../../../../../../features/worksTable/worksTable";
+import {connect} from "react-redux";
 // import style from './WorkHead.module.css'
 
 class WorkHead extends React.Component {
@@ -16,8 +18,7 @@ class WorkHead extends React.Component {
     }
 
     clickCollumHead = () => {
-        const {removeCollumHead, column} = this.props;
-        removeCollumHead(column);
+        this.props.removeColumnHead();
     }
     clickChangeColors = () => {
             let currentColor = this.state.changeColors;
@@ -52,4 +53,12 @@ class WorkHead extends React.Component {
     }
 }
 
-export default WorkHead;
+const mapStateToProps = (state) =>({
+    hideColumns: state.worksTable.hideColumns
+})
+
+const mapDispatchToProps = (dispatch, {column}) => ({
+    removeColumnHead: () => dispatch(removeColumnHead({column})),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(WorkHead);

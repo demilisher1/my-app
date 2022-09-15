@@ -3,15 +3,17 @@ import style from './WorksTable.module.css';
 import WorksHead from "./WorkHead/WorkHead";
 import WorkItem from "./WorkItem/WorkItem";
 import PropTypes from "prop-types";
+import {changeVisible} from "../../../../../../features/worksTable/worksTable";
+import {connect} from "react-redux";
 
 
 class WorksTable extends React.Component{
 
     render() {
-        const {worksHead, worksData, removeColumnHead, visible, hideColumn, removeItem} = this.props
+        const {worksHead, worksData, visibleTable, removeItem} = this.props
         return (
             <div>
-                {visible &&  (
+                {visibleTable && worksData.length &&  (
                     <>
                         <div className={style.headItem}>
                             {worksHead.map(({column, title}, index) => {
@@ -20,8 +22,6 @@ class WorksTable extends React.Component{
                                         column={column}
                                         title={title}
                                         index={index}
-                                        removeCollumHead={removeColumnHead}
-                                        hideColumns={hideColumn}
                                     />
                                 }
                             )}
@@ -47,7 +47,6 @@ class WorksTable extends React.Component{
                                         dolsnost={dolsnost}
                                         data={data}
                                         removeItem={removeItem}
-                                        hideColumns={hideColumn}
                                     />
                                 )
                             })}
@@ -64,10 +63,17 @@ class WorksTable extends React.Component{
 WorksTable.propTypes = {
     worksHead: PropTypes.array.isRequired,
     worksData: PropTypes.array.isRequired,
-    removeColumnHead: PropTypes.func.isRequired,
-    visible: PropTypes.bool.isRequired,
     field: PropTypes.string,
     hideColumn: PropTypes.array.isRequired,
     removeItem: PropTypes.func.isRequired
 }
-export default WorksTable;
+
+
+function mapStateToProps(state) {
+    return {
+        visibleTable: state.worksTable.visible,
+        hideColumn: state.worksTable.hideColumns
+    }
+}
+
+export default connect(mapStateToProps)(WorksTable)
