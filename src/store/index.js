@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import worksTableReducer from '../features/worksTable/worksTable'
-
-export default configureStore({
+import worksTableSliceReducer from './worksTableSlice/worksTableSlice'
+const store = configureStore({
     reducer: {
-        worksTable: worksTableReducer,
+        worksTable: worksTableSliceReducer,
     },
 })
+export default store

@@ -1,5 +1,5 @@
 import React from "react";
-import {removeColumnHead} from "../../../../../../../features/worksTable/worksTable";
+import {removeColumnHead} from "../../../../../../../store/worksTableSlice/worksTableSlice";
 import {connect} from "react-redux";
 // import style from './WorkHead.module.css'
 

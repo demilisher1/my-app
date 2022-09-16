@@ -3,6 +3,8 @@ import Label from "../../../../../common/Label/Label";
 import Select from "../../../../../common/Select/Select";
 import Input from "../../../../../common/Input/Input";
 import style from './WorksFilter.module.css';
+import {connect} from "react-redux";
+
 
 class WorksFilter extends React.Component {
     state = {
@@ -63,4 +65,12 @@ class WorksFilter extends React.Component {
     }
 }
 
-export default WorksFilter;
+function mapStateToProps(state) {
+    return {
+        head: state.worksTable.head,
+    }
+}
+
+export default connect(mapStateToProps)(WorksFilter)
+
+// export default WorksFilter;

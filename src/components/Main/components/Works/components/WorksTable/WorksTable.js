@@ -3,20 +3,19 @@ import style from './WorksTable.module.css';
 import WorksHead from "./WorkHead/WorkHead";
 import WorkItem from "./WorkItem/WorkItem";
 import PropTypes from "prop-types";
-import {changeVisible} from "../../../../../../features/worksTable/worksTable";
 import {connect} from "react-redux";
 
 
 class WorksTable extends React.Component{
 
     render() {
-        const {worksHead, worksData, visibleTable, removeItem} = this.props
+        const {head, data, visibleTable, removeItem} = this.props
         return (
             <div>
-                {visibleTable && worksData.length &&  (
+                {visibleTable && data.length &&  (
                     <>
                         <div className={style.headItem}>
-                            {worksHead.map(({column, title}, index) => {
+                            {head.map(({column, title}, index) => {
                                     return <WorksHead
                                         key={index}
                                         column={column}
@@ -27,7 +26,7 @@ class WorksTable extends React.Component{
                             )}
                         </div>
                         <div>
-                            {worksData.map(({work, dolsnost, data, id}, index) =>  {
+                            {data.map(({work, dolsnost, data, id}, index) =>  {
                                 let lesha = style.dataItem2;
                                 let evgeniy = index + 1;
                                 if (index %2 !== 0) {
@@ -61,8 +60,8 @@ class WorksTable extends React.Component{
     }
 }
 WorksTable.propTypes = {
-    worksHead: PropTypes.array.isRequired,
-    worksData: PropTypes.array.isRequired,
+    // worksHead: PropTypes.array.isRequired,
+    // worksData: PropTypes.array.isRequired,
     field: PropTypes.string,
     hideColumn: PropTypes.array.isRequired,
     removeItem: PropTypes.func.isRequired
@@ -72,7 +71,9 @@ WorksTable.propTypes = {
 function mapStateToProps(state) {
     return {
         visibleTable: state.worksTable.visible,
-        hideColumn: state.worksTable.hideColumns
+        hideColumn: state.worksTable.hideColumns,
+        head: state.worksTable.head,
+        data: state.worksTable.data
     }
 }
 
