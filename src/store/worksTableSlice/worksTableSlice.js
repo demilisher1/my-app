@@ -76,7 +76,7 @@ export const worksTableSlice = createSlice({
         hideColumns: [],
         incomingData: []
     },
-    // this.initialState.incomingData = [...this.initialState.data]
+
 
     reducers: {
         changeVisible: (state, action) => {
@@ -96,9 +96,11 @@ export const worksTableSlice = createSlice({
                 state.hideColumns.push(column)
             }
         },
+
     }
 })
 
 export const { changeVisible, removeColumnHead, setIncomingData } = worksTableSlice.actions
+export const { } = worksTableSlice.actions
 
 export default worksTableSlice.reducer

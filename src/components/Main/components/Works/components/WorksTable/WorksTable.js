@@ -60,8 +60,6 @@ class WorksTable extends React.Component{
     }
 }
 WorksTable.propTypes = {
-    // worksHead: PropTypes.array.isRequired,
-    // worksData: PropTypes.array.isRequired,
     field: PropTypes.string,
     hideColumn: PropTypes.array.isRequired,
     removeItem: PropTypes.func.isRequired

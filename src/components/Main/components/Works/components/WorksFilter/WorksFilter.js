@@ -39,7 +39,7 @@ class WorksFilter extends React.Component {
     };
 
     render() {
-        const {worksHead} = this.props;
+        const {worksHead, head } = this.props;
         const {searchValue, selectValue} = this.state;
 
         return(
@@ -47,7 +47,7 @@ class WorksFilter extends React.Component {
                 <Label title="Фильтруемое поле" >
                     <Select
                         value={selectValue}
-                        options={worksHead}
+                        options={head}
                         field="selectValue"
                         handleChange={this.handleChange}
 
@@ -68,9 +68,8 @@ class WorksFilter extends React.Component {
 function mapStateToProps(state) {
     return {
         head: state.worksTable.head,
+        incomingData: state.worksTable.incomingData
     }
 }
 
 export default connect(mapStateToProps)(WorksFilter)
-
-// export default WorksFilter;
