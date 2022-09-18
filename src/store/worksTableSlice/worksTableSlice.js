@@ -74,7 +74,7 @@ export const worksTableSlice = createSlice({
 
         ],
         hideColumns: [],
-        incomingData: []
+        incomingData: [],
     },
 
 
@@ -97,10 +97,21 @@ export const worksTableSlice = createSlice({
             }
         },
 
+        // Не понял как здесь появился индекс
+        removeItem: (state, action) => {
+             let arr = [...state.data];
+             const index = action.payload.index
+            arr.splice(index, 1)
+            state.data = arr
+        },
+
+        changeDataState: (state, data) => {
+            state.data = data
+        },
+
     }
 })
 
-export const { changeVisible, removeColumnHead, setIncomingData } = worksTableSlice.actions
-export const { } = worksTableSlice.actions
+export const { changeVisible, removeColumnHead, setIncomingData, removeItem, changeDataState } = worksTableSlice.actions
 
 export default worksTableSlice.reducer

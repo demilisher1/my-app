@@ -9,21 +9,7 @@ import {changeVisible, setIncomingData} from "../../../../store/worksTableSlice/
 
 class Works extends React.Component {
 
-    removeItem = (index) => {
-        let arr = [...this.state.data];
 
-        arr.splice(index, 1)
-
-        this.setState({
-            data: arr
-        })
-    };
-
-    changeDataState = (data) => {
-        this.setState({
-            data
-        })
-    }
 
     changeVariableTable = () => {
         this.props.changeVisible()
@@ -42,11 +28,9 @@ class Works extends React.Component {
                 </Button>
                 <h2 className={style.skill}>Опыт работы</h2>
                 <WorksFilter
-                    changeDataState={this.changeDataState}
+                    // changeDataState={this.changeDataState}
                 />
-                <WorksTable
-                    removeItem={this.removeItem}
-                />
+                <WorksTable/>
             </div>
         )
     }

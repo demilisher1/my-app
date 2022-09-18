@@ -1,6 +1,7 @@
 import React from "react";
 import style from './WorkItem.module.css'
 import {connect} from "react-redux";
+import {removeItem} from "../../../../../../../store/worksTableSlice/worksTableSlice";
 
 class WorkItem extends React.Component {
 
@@ -30,8 +31,15 @@ class WorkItem extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        hideColumns: state.worksTable.hideColumns
+        hideColumns: state.worksTable.hideColumns,
+    }
+}
+// Не понял как сюда попадает индек и почему я должен пользоваться фигурными скобками,
+// как в dispatch(removeItem({index})) попадает индекс из стата
+function mapDispatchToProps(dispatch, {index}) {
+    return {
+       removeItem: () => dispatch(removeItem({index}))
     }
 }
 
-export default connect(mapStateToProps)(WorkItem)
+export default connect(mapStateToProps, mapDispatchToProps)(WorkItem)

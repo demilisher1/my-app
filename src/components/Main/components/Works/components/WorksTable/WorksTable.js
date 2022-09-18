@@ -9,7 +9,7 @@ import {connect} from "react-redux";
 class WorksTable extends React.Component{
 
     render() {
-        const {head, data, visibleTable, removeItem} = this.props
+        const {head, data, visibleTable} = this.props
         return (
             <div>
                 {visibleTable && data.length &&  (
@@ -45,7 +45,6 @@ class WorksTable extends React.Component{
                                         work={work}
                                         dolsnost={dolsnost}
                                         data={data}
-                                        removeItem={removeItem}
                                     />
                                 )
                             })}
@@ -61,15 +60,12 @@ class WorksTable extends React.Component{
 }
 WorksTable.propTypes = {
     field: PropTypes.string,
-    hideColumn: PropTypes.array.isRequired,
-    removeItem: PropTypes.func.isRequired
 }
 
 
 function mapStateToProps(state) {
     return {
         visibleTable: state.worksTable.visible,
-        hideColumn: state.worksTable.hideColumns,
         head: state.worksTable.head,
         data: state.worksTable.data
     }
