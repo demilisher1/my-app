@@ -4,7 +4,7 @@ import Select from "../../../../../common/Select/Select";
 import Input from "../../../../../common/Input/Input";
 import style from './WorksFilter.module.css';
 import {connect} from "react-redux";
-import {changeDataState} from "../../../../../../store/worksTableSlice/worksTableSlice";
+import {changeDataState, setIncomingData} from "../../../../../../store/worksTableSlice/worksTableSlice";
 
 
 class WorksFilter extends React.Component {
@@ -23,7 +23,6 @@ class WorksFilter extends React.Component {
                 return item[selectValue].toLowerCase().includes(searchValue.toLowerCase())
             }
         });
-
         this.props.changeDataState(data)
     }
 
@@ -72,9 +71,9 @@ function mapStateToProps(state) {
         incomingData: state.worksTable.incomingData,
     }
 }
-function mapDispatchToProps(dispatch, {data}) {
+function mapDispatchToProps(dispatch) {
     return {
-        changeDataState: () => dispatch(changeDataState({data}))
+        changeDataState: (data) => dispatch(changeDataState({data})),
     }
 }
 

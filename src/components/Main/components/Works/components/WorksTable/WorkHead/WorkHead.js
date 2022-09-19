@@ -33,7 +33,7 @@ class WorkHead extends React.Component {
     }
 
     render() {
-        const {hideColumns, column} = this.props;
+        const {hideColumns, showText} = this.props;
         const {colors, changeColors} = this.state;
 
         const style = {
@@ -44,7 +44,7 @@ class WorkHead extends React.Component {
             <div>
                 <div style={style}>{this.props.title}</div>
                 <button onClick={this.clickCollumHead}>
-                    {hideColumns.includes(column) ? 'Показать' : 'Скрыть'}
+                    {showText ? 'Показать' : 'Скрыть'}
                 </button>
                 <button onClick={this.clickChangeColors}> Смени цвет
                 </button>
@@ -53,8 +53,9 @@ class WorkHead extends React.Component {
     }
 }
 
-const mapStateToProps = (state) =>({
-    hideColumns: state.worksTable.hideColumns
+const mapStateToProps = (state, {column}) =>({
+    hideColumns: state.worksTable.hideColumns,
+    showText: state.worksTable.hideColumns.includes(column),
 })
 
 const mapDispatchToProps = (dispatch, {column}) => ({

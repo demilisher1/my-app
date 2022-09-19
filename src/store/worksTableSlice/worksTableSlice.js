@@ -84,7 +84,7 @@ export const worksTableSlice = createSlice({
         },
 
         setIncomingData: (state, action) => {
-            state.inconingData = [...state.data]
+            state.incomingData = [...state.data]
         },
 
         removeColumnHead: (state, action) => {
@@ -105,8 +105,9 @@ export const worksTableSlice = createSlice({
             state.data = arr
         },
 
-        changeDataState: (state, data) => {
-            state.data = data
+        changeDataState: (state, action) => {
+
+            state.data = action.payload.data
         },
 
     }

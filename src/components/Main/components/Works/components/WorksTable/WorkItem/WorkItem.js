@@ -6,7 +6,7 @@ import {removeItem} from "../../../../../../../store/worksTableSlice/worksTableS
 class WorkItem extends React.Component {
 
     clickDeliteDataItem = () => {
-        this.props.removeItem(this.props.index)
+        this.props.removeItem()
     }
 
     render() {
@@ -29,13 +29,11 @@ class WorkItem extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, props) {
     return {
-        hideColumns: state.worksTable.hideColumns,
-    }
+        hideColumns: state.worksTable.hideColumns,}
 }
-// Не понял как сюда попадает индек и почему я должен пользоваться фигурными скобками,
-// как в dispatch(removeItem({index})) попадает индекс из стата
+
 function mapDispatchToProps(dispatch, {index}) {
     return {
        removeItem: () => dispatch(removeItem({index}))

@@ -9,27 +9,23 @@ import {changeVisible, setIncomingData} from "../../../../store/worksTableSlice/
 
 class Works extends React.Component {
 
-
-
     changeVariableTable = () => {
         this.props.changeVisible()
     };
 
- componentDidMount() {
-     this.props.setIncomingData()
- }
+    componentDidMount() {
+        this.props.setIncomingData()
+    }
 
     render() {
-               const {visibleTable} = this.props;
+        const {visibleTable} = this.props;
         return (
             <div className={style.green}>
                 <Button handleClick={this.changeVariableTable}>
                     {visibleTable?'Скрыть список':'Показать список'}
                 </Button>
                 <h2 className={style.skill}>Опыт работы</h2>
-                <WorksFilter
-                    // changeDataState={this.changeDataState}
-                />
+                <WorksFilter/>
                 <WorksTable/>
             </div>
         )
