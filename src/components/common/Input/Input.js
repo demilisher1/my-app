@@ -20,7 +20,7 @@ class Input extends React.Component{
      * @return void
      */
     handleChange = event => {
-        const { handleChange, field } = this.props
+        const { handleChange,  field, placeholder, type} = this.props
         handleChange(event.target.value, field, event)
     }
 
@@ -35,7 +35,7 @@ class Input extends React.Component{
 Input.propTypes = {
     handleChange: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,
-    field: PropTypes.string
+    field: PropTypes.string,
 };
 
 export default Input;

@@ -1,6 +1,7 @@
 import React from "react";
 import style from './FormContact.module.css'
 import Label from "../../../../common/Label/Label";
+import Input from "../../../../common/Input/Input";
 
 class FormContact extends React.Component{
     state = {
@@ -13,35 +14,37 @@ class FormContact extends React.Component{
         alert(this.state.nameValue + ' Вам поступит письмо на почту ' +  this.state.emailValue );
         event.preventDefault();
     }
-    handleInputChange = (event) => {
-        const target = event.target;
-        const value = target.type === 'text' ? target.value : target.value;
-        const name = target.name;
 
+    handleChange = ( value, field, event) => {
         this.setState({
-            [name]: value
+            [field]: value
         })
     }
+
 
     render() {
         const {nameValue, emailValue} = this.state;
         return (
             <form onSubmit={this.handleSubmit} className={style.formGroup}>
                 <Label title={'Ваше имя'} >
-                    <input
-                        name='nameValue'
+                    <Input
+                        // name='nameValue'
                         type="text"
+                        field="nameValue"
                         value={nameValue}
-                        onChange={this.handleInputChange}
-                        placeholder="Введите ваше имя..."/>
+                        handleChange={this.handleChange}
+                        placeholder="Введите ваше имя..."
+                    />
                 </Label>
                 <Label title={'Ваш email'}>
-                    <input
-                        name='emailValue'
+                    <Input
+                        // name='emailValue'
                         type="email"
+                        field="emailValue"
                         value={emailValue}
-                        onChange={this.handleInputChange}
-                        placeholder="Введите ваш email..."/>
+                        handleChange={this.handleChange}
+                        placeholder="Введите ваш email..."
+                    />
                 </Label>
                 <Label title={'Введите ваш текст'}>
                     <textarea  cols="15" rows="2"></textarea>
