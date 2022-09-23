@@ -1,16 +1,30 @@
-.row {
-    display: flex;
-    margin-bottom: 20px;
-}
+/*.row {*/
+/*    display: flex;*/
+/*    margin-bottom: 20px;*/
+/*}*/
 
-.row > .formGroup {
-    width: 50%;
-    margin-right: 10px;
-}
+/*.row > .formGroup {*/
+/*    width: 50%;*/
+/*    margin-right: 10px;*/
+/*}*/
+
 .formGroup label {
     display: block;
     font-size: 14px;
     color: #868986;
+}
+.formGroup .btn {
+    max-width: fit-content;
+    background: #111;
+    padding: 15px 20px;
+    color: #fff;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.formGroup .btn:hover {
+    opacity: 0.9;
 }
 
 .formGroup input,

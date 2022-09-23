@@ -9,15 +9,4 @@
     margin-block-end: 0.83em;
 }
 
-.btn {
-    background: #111;
-    padding: 15px 20px;
-    color: #fff;
-    border: none;
-    font-family: inherit;
-    cursor: pointer;
-    opacity: 0.9;
-}
-.btn:hover {
-    opacity: 0.9;
-}
+

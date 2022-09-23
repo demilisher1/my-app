@@ -7,7 +7,6 @@ class Contact extends React.Component{
         return <div className={style.contact}>
             <div className={style.call}>Связаться со мной</div>
             <FormContact/>
-                <input className={style.btn} type="submit" value="Связаться!"/>
             </div>
     }
 }

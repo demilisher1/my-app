@@ -1,7 +1,6 @@
 import React from "react";
 import {removeColumnHead} from "../../../../../../../store/worksTableSlice/worksTableSlice";
 import {connect} from "react-redux";
-// import style from './WorkHead.module.css'
 
 class WorkHead extends React.Component {
     state = {
@@ -20,6 +19,7 @@ class WorkHead extends React.Component {
     clickCollumHead = () => {
         this.props.removeColumnHead();
     }
+
     clickChangeColors = () => {
             let currentColor = this.state.changeColors;
         if (currentColor === null || currentColor === this.state.colors.length -1) {
@@ -33,7 +33,7 @@ class WorkHead extends React.Component {
     }
 
     render() {
-        const {hideColumns, showText} = this.props;
+        const { showText  } = this.props;
         const {colors, changeColors} = this.state;
 
         const style = {
