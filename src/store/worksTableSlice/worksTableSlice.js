@@ -97,7 +97,6 @@ export const worksTableSlice = createSlice({
             }
         },
 
-        // Не понял как здесь появился индекс
         removeItem: (state, action) => {
              let arr = [...state.data];
              const index = action.payload.index

@@ -2,6 +2,8 @@ import React from "react";
 import style from './FormContact.module.css'
 import Label from "../../../../common/Label/Label";
 import Input from "../../../../common/Input/Input";
+import Button from "../../../../common/Button/Button";
+
 
 class FormContact extends React.Component{
     state = {
@@ -15,10 +17,17 @@ class FormContact extends React.Component{
         event.preventDefault();
     }
 
-    handleChange = ( value, field, event) => {
+    handleChange = ( value, field) => {
         this.setState({
             [field]: value
         })
+    }
+
+    handleFocus = (e) => {
+        e.currentTarget.style.border = '2px solid blue'
+    }
+    handleBlur = (e) => {
+        e.currentTarget.style.border = 'none'
     }
 
 
@@ -28,7 +37,8 @@ class FormContact extends React.Component{
             <form onSubmit={this.handleSubmit} className={style.formGroup}>
                 <Label title={'Ваше имя'} >
                     <Input
-                        // name='nameValue'
+                        onFocus={this.handleFocus}
+                        onBlur={this.handleBlur}
                         type="text"
                         field="nameValue"
                         value={nameValue}
@@ -38,7 +48,8 @@ class FormContact extends React.Component{
                 </Label>
                 <Label title={'Ваш email'}>
                     <Input
-                        // name='emailValue'
+                        onFocus={this.handleFocus}
+                        onBlur={this.handleBlur}
                         type="email"
                         field="emailValue"
                         value={emailValue}
@@ -49,10 +60,10 @@ class FormContact extends React.Component{
                 <Label title={'Введите ваш текст'}>
                     <textarea  cols="15" rows="2"></textarea>
                 </Label>
-                <input
-                    className={style.btn}
+                <Button
                     type="submit"
-                    value="Связаться!"/>
+                    value={'Связаться'}
+                    />
             </form>
         );
     }

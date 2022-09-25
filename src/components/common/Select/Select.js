@@ -10,9 +10,15 @@ class Select extends React.Component {
     }
 
     render() {
-        const {options, value} = this.props;
+        const {options, value, onFocus, onBlur} = this.props;
         return (
-            <select value={value} onChange={this.handleChange} className={style.root}>
+            <select
+                value={value}
+                onChange={this.handleChange}
+                className={style.root}
+                onFocus={onFocus}
+                onBlur={onBlur}
+            >
                 {options.map(item => (
                     <option key={item.column} value={item.column}>
                         {item.title}

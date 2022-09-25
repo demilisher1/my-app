@@ -20,14 +20,22 @@ class Input extends React.Component{
      * @return void
      */
     handleChange = event => {
-        const { handleChange,  field, placeholder, type} = this.props
+        const { handleChange,  field} = this.props
         handleChange(event.target.value, field, event)
     }
 
     render() {
-        const {value} = this.props;
+        const {value, type, placeholder, onFocus, onBlur} = this.props;
         return (
-            <input onChange={this.handleChange} className={style.root} value={value}/>
+            <input
+                onFocus={onFocus}
+                onBlur={onBlur}
+                type={type}
+                placeholder={placeholder}
+                onChange={this.handleChange}
+                className={style.root}
+                value={value}
+            />
         );
     }
 }
