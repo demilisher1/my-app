@@ -2,16 +2,31 @@ import React from "react";
 import style from './Hobby.module.css';
 
 class Hobby extends React.Component{
+    state = {
+        item: [
+            {
+                hobby: "UnrealEngine",
+            },
+            {
+                hobby: "Гулять"
+            },
+            {
+                hobby: "Спорт: Настольный тенис"
+            },
+            {
+                hobby: "WorldOfTanks"
+            },
+
+        ]
+    }
     render() {
+        const {item} = this.state;
         return <div className={style.yellow}>
             <div className={style.ho}>Мои хобби</div>
             <div className={style.list}>
-                <div className={style.link}>
-                    <a href="https://kttc.ru/wot/ru/user/demilisher/" target="_blank">WorldOfTanks</a>
-                </div>
-                <div className={style.UE}>UnrealEngine 5</div>
-                <div className={style.walk}>Гулять</div>
-                <div className={style.sport}>Спорт: Настольный тенис</div>
+                {item.map(({hobby}) => {
+                    return <div key={hobby}>{hobby}</div>
+                })}
             </div>
         </div>
     }

@@ -27,7 +27,7 @@ class FormContact extends React.Component{
         e.currentTarget.style.border = '2px solid blue'
     }
     handleBlur = (e) => {
-        e.currentTarget.style.border = 'none'
+        e.currentTarget.style.border = '2px solid'
     }
 
 

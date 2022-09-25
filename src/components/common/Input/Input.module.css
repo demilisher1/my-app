@@ -1,9 +1,8 @@
 .root {
-    border-radius: 25px;
-}
-.root {
-    color: grey;
     border-radius: 5px;
-    /*max-width: 160px*/
-;
+    margin-bottom: 10px;
+}
+
+.root:hover {
+    color: #868986;
 }

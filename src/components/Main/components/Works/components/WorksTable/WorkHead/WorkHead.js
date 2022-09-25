@@ -1,6 +1,7 @@
 import React from "react";
 import {removeColumnHead} from "../../../../../../../store/worksTableSlice/worksTableSlice";
 import {connect} from "react-redux";
+import Button from "../../../../../../common/Button/Button";
 
 class WorkHead extends React.Component {
     state = {
@@ -43,11 +44,11 @@ class WorkHead extends React.Component {
         return (
             <div>
                 <div style={style}>{this.props.title}</div>
-                <button onClick={this.clickCollumHead}>
+                <Button handleClick={this.clickCollumHead}>
                     {showText ? 'Показать' : 'Скрыть'}
-                </button>
-                <button onClick={this.clickChangeColors}> Смени цвет
-                </button>
+                </Button>
+                <Button handleClick={this.clickChangeColors}> Смени цвет
+                </Button>
             </div>
         )
     }

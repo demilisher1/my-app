@@ -5,7 +5,7 @@ class About extends React.Component{
     render() {
         return <div className={style.red}>
             <div className={style.I}>Обо мне</div>
-            <div className={style.oboutMe}>
+            <div className={style.aboutMe}>
                 <a target="_blank" href="AboutMe.html">Моя история</a>
             </div>
         </div>
