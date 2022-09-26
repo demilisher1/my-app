@@ -11,6 +11,9 @@ import style from './Input.module.css'
  * @public
  */
 class Input extends React.Component{
+    state = {
+        focused: false
+    }
 
     /**
      * Метод handleChange реагирует на изменения в инпуте и оптравляет данные в функцию handleChange принимаемую в пропсах
@@ -25,25 +28,34 @@ class Input extends React.Component{
     }
 
 
-    handleFocus = event => {
+    handleFocus = (event) => {
+        this.props.onFocus(event)
+        this.setState({
+            focused: true
+        })
+    }
 
+    handleBlur = event => {
+        this.setState({
+            focused: false
+        })
     }
 
 
     render() {
         const {value, type, placeholder} = this.props;
-        let className = `${style.root}`;
-        if(){
+        let className = `${style.root} `;
+        if(this.state.focused){
             className += style.onFocus
         }
 
         return (
             <input
-                class={className}
                 type={type}
                 placeholder={placeholder}
                 onChange={this.handleChange}
                 onFocus={this.handleFocus}
+                onBlur={this.handleBlur}
                 className={className}
                 value={value}
             />

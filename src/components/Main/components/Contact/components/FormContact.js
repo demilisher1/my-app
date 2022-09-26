@@ -21,7 +21,9 @@ class FormContact extends React.Component{
         })
     }
 
-
+    onFocus = event => {
+        console.log(event)
+    }
 
 
     render() {
@@ -31,7 +33,6 @@ class FormContact extends React.Component{
                 <Label title={'Ваше имя'} >
                     <Input
                         onFocus={this.onFocus}
-                        onBlur={this.onBlur}
                         type="text"
                         field="nameValue"
                         value={nameValue}
