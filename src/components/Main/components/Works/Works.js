@@ -21,7 +21,7 @@ class Works extends React.Component {
         const {visibleTable} = this.props;
         return (
             <div className={style.green}>
-                <Button handleClick={this.changeVariableTable}>
+                <Button handleChange={this.changeVariableTable}>
                     {visibleTable?'Скрыть список':'Показать список'}
                 </Button>
                 <h2 className={style.skill}>Опыт работы</h2>

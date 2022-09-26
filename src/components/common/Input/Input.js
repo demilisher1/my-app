@@ -24,16 +24,27 @@ class Input extends React.Component{
         handleChange(event.target.value, field, event)
     }
 
+
+    handleFocus = event => {
+
+    }
+
+
     render() {
-        const {value, type, placeholder, onFocus, onBlur} = this.props;
+        const {value, type, placeholder} = this.props;
+        let className = `${style.root}`;
+        if(){
+            className += style.onFocus
+        }
+
         return (
             <input
-                onFocus={onFocus}
-                onBlur={onBlur}
+                class={className}
                 type={type}
                 placeholder={placeholder}
                 onChange={this.handleChange}
-                className={style.root}
+                onFocus={this.handleFocus}
+                className={className}
                 value={value}
             />
         );

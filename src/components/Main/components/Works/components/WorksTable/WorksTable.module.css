@@ -8,9 +8,12 @@
     grid-template-columns: 1fr 1fr 2fr 1fr;
     margin-bottom: 3px;
 }
+.dataItem2:hover {
+    opacity: 0.9;
+}
 .odd {
     background: aqua;
 }
 .even {
-    background: peachpuff;
+    background: darkgrey;
 }

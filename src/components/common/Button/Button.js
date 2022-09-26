@@ -5,10 +5,10 @@ import style from "./Button.module.css"
 class Button extends React.Component{
 
     render() {
-        const {handleClick, children, value} = this.props;
+        const {handleChange, children, value} = this.props;
         return (
             <button
-                onClick={handleClick}
+                onClick={handleChange}
                 className={style.root}
             >
                 {children}
@@ -19,7 +19,7 @@ class Button extends React.Component{
 }
 
 Button.propTypes = {
-    // handleClick: PropTypes.func.isRequired,
+    handleChange: PropTypes.func.isRequired,
     children: PropTypes.node,
 }
 

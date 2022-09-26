@@ -44,10 +44,10 @@ class WorkHead extends React.Component {
         return (
             <div>
                 <div style={style}>{this.props.title}</div>
-                <Button handleClick={this.clickCollumHead}>
+                <Button handleChange={this.clickCollumHead}>
                     {showText ? 'Показать' : 'Скрыть'}
                 </Button>
-                <Button handleClick={this.clickChangeColors}> Смени цвет
+                <Button handleChange={this.clickChangeColors}> Смени цвет
                 </Button>
             </div>
         )

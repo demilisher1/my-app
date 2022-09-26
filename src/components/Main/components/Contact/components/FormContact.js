@@ -4,13 +4,11 @@ import Label from "../../../../common/Label/Label";
 import Input from "../../../../common/Input/Input";
 import Button from "../../../../common/Button/Button";
 
-
 class FormContact extends React.Component{
     state = {
         nameValue: '',
         emailValue: '',
     };
-
 
     handleSubmit = (event) => {
         alert(this.state.nameValue + ' Вам поступит письмо на почту ' +  this.state.emailValue );
@@ -23,12 +21,7 @@ class FormContact extends React.Component{
         })
     }
 
-    handleFocus = (e) => {
-        e.currentTarget.style.border = '2px solid blue'
-    }
-    handleBlur = (e) => {
-        e.currentTarget.style.border = '2px solid'
-    }
+
 
 
     render() {
@@ -37,8 +30,8 @@ class FormContact extends React.Component{
             <form onSubmit={this.handleSubmit} className={style.formGroup}>
                 <Label title={'Ваше имя'} >
                     <Input
-                        onFocus={this.handleFocus}
-                        onBlur={this.handleBlur}
+                        onFocus={this.onFocus}
+                        onBlur={this.onBlur}
                         type="text"
                         field="nameValue"
                         value={nameValue}
@@ -48,8 +41,6 @@ class FormContact extends React.Component{
                 </Label>
                 <Label title={'Ваш email'}>
                     <Input
-                        onFocus={this.handleFocus}
-                        onBlur={this.handleBlur}
                         type="email"
                         field="emailValue"
                         value={emailValue}
@@ -61,6 +52,7 @@ class FormContact extends React.Component{
                     <textarea  cols="15" rows="2"></textarea>
                 </Label>
                 <Button
+                    handleChange={this.handleChange}
                     type="submit"
                     value={'Связаться'}
                     />

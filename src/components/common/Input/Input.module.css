@@ -6,3 +6,6 @@
 .root:hover {
     color: #868986;
 }
+.onFocus {
+   border: 2px solid blue;
+}

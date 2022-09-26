@@ -24,9 +24,11 @@ class Hobby extends React.Component{
         return <div className={style.yellow}>
             <div className={style.ho}>Мои хобби</div>
             <div className={style.list}>
-                {item.map(({hobby}) => {
-                    return <div key={hobby}>{hobby}</div>
-                })}
+                {item.map(item => (
+                    <div key={item.hobby} value={item.hobby}>
+                        {item.hobby}
+                    </div>
+                ))}
             </div>
         </div>
     }

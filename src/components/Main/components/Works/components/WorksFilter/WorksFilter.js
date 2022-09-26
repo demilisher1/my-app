@@ -37,12 +37,7 @@ class WorksFilter extends React.Component {
             [field]: value
         })
     };
-    handleFocus = (e) => {
-        e.currentTarget.style.border = '2px solid blue'
-    }
-    handleBlur = (e) => {
-        e.currentTarget.style.border = 'none'
-    }
+
 
     render() {
         const { head } = this.props;
@@ -52,8 +47,6 @@ class WorksFilter extends React.Component {
             <div>
                 <Label title="Фильтруемое поле" >
                     <Select
-                        onFocus={this.handleFocus}
-                        onBlur={this.handleBlur}
                         value={selectValue}
                         options={head}
                         field="selectValue"
@@ -63,8 +56,6 @@ class WorksFilter extends React.Component {
                 </Label>
                 <Label title="Поиск элемента по полю">
                     <Input
-                        onFocus={this.handleFocus}
-                        onBlur={this.handleBlur}
                         value={searchValue}
                         field="searchValue"
                         handleChange={this.handleChange}

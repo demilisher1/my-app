@@ -4,3 +4,6 @@
     font-weight: lighter;
     border-radius: 5px;
 }
+.onFocus {
+    border: 2px solid blue;
+}
