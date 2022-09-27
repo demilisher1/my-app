@@ -29,7 +29,9 @@ class Input extends React.Component{
 
 
     handleFocus = (event) => {
-        this.props.onFocus(event)
+        if (this.props.onFocus) {
+            this.props.onFocus(event)
+        }
         this.setState({
             focused: true
         })
@@ -48,6 +50,7 @@ class Input extends React.Component{
         if(this.state.focused){
             className += style.onFocus
         }
+
 
         return (
             <input

@@ -1,24 +1,17 @@
-/*.row {*/
-/*    display: flex;*/
-/*    margin-bottom: 20px;*/
-/*}*/
+.root {
 
-/*.row > .formGroup {*/
-/*    width: 50%;*/
-/*    margin-right: 10px;*/
-/*}*/
-
-
-
-.formGroup input,
-.formGroup textarea {
-    width: 100%;
-    box-sizing: border-box;
-    color: #000;
-    padding: 15px 0 10px;
-    outline: none;
-    font-size: 14px;
-    font-weight: bold;
-    background: transparent;
 }
+
+
+
+/*.formGroup input,*/
+/*.formGroup textarea {*/
+/*    width: 100%;*/
+/*    box-sizing: border-box;*/
+/*    color: #000;*/
+/*    padding: 15px 0 10px;*/
+/*    outline: none;*/
+/*    font-size: 14px;*/
+/*    font-weight: bold;*/
+/*}*/
 

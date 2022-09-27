@@ -6,7 +6,6 @@ import style from './WorksFilter.module.css';
 import {connect} from "react-redux";
 import {changeDataState, setIncomingData} from "../../../../../../store/worksTableSlice/worksTableSlice";
 
-
 class WorksFilter extends React.Component {
     state = {
         /** searchValue это вэлью для инпута. */
@@ -38,7 +37,6 @@ class WorksFilter extends React.Component {
         })
     };
 
-
     render() {
         const { head } = this.props;
         const {searchValue, selectValue} = this.state;
@@ -51,7 +49,6 @@ class WorksFilter extends React.Component {
                         options={head}
                         field="selectValue"
                         handleChange={this.handleChange}
-
                     />
                 </Label>
                 <Label title="Поиск элемента по полю">

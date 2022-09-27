@@ -6,14 +6,14 @@ class Label extends React.Component{
     render() {
         const {title, children} = this.props
         return (
-            <label className={style.root}>
+            <div className={style.root}>
                 <div>
                     {title}
                 </div>
                 <div>
                     {children}
                 </div>
-            </label>
+            </div>
         )
     }
 }

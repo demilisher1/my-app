@@ -21,34 +21,36 @@ class FormContact extends React.Component{
         })
     }
 
-    onFocus = event => {
+    onFocus = (event) => {
         console.log(event)
-    }
 
+    }
 
     render() {
         const {nameValue, emailValue} = this.state;
         return (
             <form onSubmit={this.handleSubmit} className={style.formGroup}>
-                <Label title={'Ваше имя'} >
-                    <Input
-                        onFocus={this.onFocus}
-                        type="text"
-                        field="nameValue"
-                        value={nameValue}
-                        handleChange={this.handleChange}
-                        placeholder="Введите ваше имя..."
-                    />
-                </Label>
-                <Label title={'Ваш email'}>
-                    <Input
-                        type="email"
-                        field="emailValue"
-                        value={emailValue}
-                        handleChange={this.handleChange}
-                        placeholder="Введите ваш email..."
-                    />
-                </Label>
+              <div className={style.root}>
+                  <Label title={'Ваше имя'} >
+                      <Input
+                          onFocus={this.onFocus}
+                          type="text"
+                          field="nameValue"
+                          value={nameValue}
+                          handleChange={this.handleChange}
+                          placeholder="Введите ваше имя..."
+                      />
+                  </Label>
+                  <Label title={'Ваш email'}>
+                      <Input
+                          type="email"
+                          field="emailValue"
+                          value={emailValue}
+                          handleChange={this.handleChange}
+                          placeholder="Введите ваш email..."
+                      />
+                  </Label>
+              </div>
                 <Label title={'Введите ваш текст'}>
                     <textarea  cols="15" rows="2"></textarea>
                 </Label>

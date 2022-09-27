@@ -1,7 +1,2 @@
-body {
-    margin: 0;
-    color: #0f141e;
-    font-size: 16px;
-    font-weight: normal;
-    font-family: 'Roboto', sans-serif;
-}
+
+@import "reset.css";
