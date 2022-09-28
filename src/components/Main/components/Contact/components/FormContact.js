@@ -8,7 +8,7 @@ class FormContact extends React.Component{
     state = {
         nameValue: '',
         emailValue: '',
-    };
+    }
 
     handleSubmit = (event) => {
         alert(this.state.nameValue + ' Вам поступит письмо на почту ' +  this.state.emailValue );
@@ -22,7 +22,7 @@ class FormContact extends React.Component{
     }
 
     onFocus = (event) => {
-        console.log(event)
+        // console.log(event)
 
     }
 
@@ -30,8 +30,8 @@ class FormContact extends React.Component{
         const {nameValue, emailValue} = this.state;
         return (
             <form onSubmit={this.handleSubmit}>
-              <div className={style.root}>
-                  <Label title={'Ваше имя'} >
+              <div>
+                  <Label >
                       <Input
                           onFocus={this.onFocus}
                           type="text"
@@ -41,7 +41,7 @@ class FormContact extends React.Component{
                           placeholder="Введите ваше имя..."
                       />
                   </Label>
-                  <Label title={'Ваш email'}>
+                  <Label >
                       <Input
                           type="email"
                           field="emailValue"
@@ -51,8 +51,11 @@ class FormContact extends React.Component{
                       />
                   </Label>
               </div>
-                <Label title={'Введите ваш текст'}>
-                    <textarea  cols="15" rows="2"></textarea>
+                <Label>
+                    <textarea
+                        cols="15" rows="2"
+                        placeholder={'Ваш текст'}
+                    ></textarea>
                 </Label>
                 <Button
                     color={'color'}

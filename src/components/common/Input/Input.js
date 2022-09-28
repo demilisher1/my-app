@@ -46,9 +46,9 @@ class Input extends React.Component{
 
     render() {
         const {value, type, placeholder} = this.props;
-        let className = `${style.root} `;
+        let className = `${style.DefaultEmpty} `;
         if(this.state.focused){
-            className += style.onFocus
+            className += style.DefaultFocus
         }
 
 

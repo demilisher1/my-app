@@ -4,7 +4,7 @@ import style from "./Select.module.css"
 
 class Select extends React.Component {
     state = {
-        focused: false
+        focused: false,
     }
 
     handleChange = event => {
@@ -25,7 +25,7 @@ class Select extends React.Component {
     }
 
     render() {
-        let className = `${style.root} `;
+        let className = `${style.selectDefault} `;
         if(this.state.focused){
             className += style.onFocus
         }

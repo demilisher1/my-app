@@ -1,9 +1,11 @@
-.root {
-    color: grey;
+.selectDefault {
+    color: var(--Gray);
+    background: var(--White) ;
     font-size: 16px;
-    font-weight: lighter;
-    border-radius: 5px;
+    line-height: 24px;
+    font-weight: 400;
 }
 .onFocus {
     border: 2px solid blue;
 }
+

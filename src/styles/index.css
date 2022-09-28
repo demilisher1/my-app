@@ -3,10 +3,13 @@
 :root {
     --Primary: #6E41E2;
     --White: #FFFFFF;
-    --Primary-Hover: #5835B0;
-    --Gray: rgba(17, 17, 17, 0.04);
+    --PrimaryHover: #5835B0;
+    --secondaryDarkHover: rgba(17, 17, 17, 0.04);
     --Black: #111111;
     --Border: 2px solid rgba(17, 17, 17, 0.48);
-    --borderBtn: 1px solid #111111;
-    --borderBtnFocus: 1px solid #828282;
+    --secondaryDarkBorder: 1px solid #111111;
+    --Gray: rgba(17, 17, 17, 0.48);
+    --InputsShadowDefault: 0px 4px 4px rgba(51, 51, 51, 0.04),
+    0px 4px 16px rgba(51, 51, 51, 0.08);
+    --InputsShadowHover: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 24px rgba(51, 51, 51, 0.24);
 }

@@ -21,18 +21,19 @@ class Button extends React.Component{
             focused: false
         })
     }
+    ///* почему нельзя объеденить PrimaryFocus и secondaryDarkFocus
 
     render() {
-        let className = `${style.root} `;
-        let color = `${style.contactBtn} `
+        let className = `${style.primary} `;
+        let color = `${style.secondaryDark} `;
         if (this.state.focused) {
-            className += style.onFocus
+            className += style.primaryFocus
         }
         if (this.props.color) {
-            className += style.contactBtn
+            className += style.secondaryDark
         }
         if (this.state.focused && this.props.color) {
-            className = color + style.onFoc
+            className = color + style.secondaryDarkFocus
         }
         const {handleChange, children, value} = this.props;
         return (

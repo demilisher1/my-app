@@ -1,4 +1,4 @@
-.root {
+.primary {
     padding: 10px 20px;
     max-width: max-content;
     max-height: max-content;
@@ -7,26 +7,26 @@
     color: var(--White);
 }
 
-.root:hover {
-    background: var(--Primary-Hover);
+.primary:hover {
+    background: var(--PrimaryHover);
 }
 
-.onFocus {
+.primaryFocus {
     border: var(--Border);
 }
-.contactBtn {
+.secondaryDark {
     color: var(--Black);
     background: var(--White);
-    border: var(--borderBtn);
+    border: var(--secondaryDarkBorder);
     padding: 10px 20px;
     max-width: max-content;
     max-height: max-content;
     border-radius: 4px;
 }
-.contactBtn:hover {
-    background: var(--Gray);
+.secondaryDark:hover {
+    background: var(--secondaryDarkHover);
 }
 
-.onFoc {
-    border: var(--borderBtnFocus);
+.secondaryDarkFocus {
+    border: var(--Border);
 }
