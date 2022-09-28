@@ -29,7 +29,7 @@ class FormContact extends React.Component{
     render() {
         const {nameValue, emailValue} = this.state;
         return (
-            <form onSubmit={this.handleSubmit} className={style.formGroup}>
+            <form onSubmit={this.handleSubmit}>
               <div className={style.root}>
                   <Label title={'Ваше имя'} >
                       <Input
@@ -55,6 +55,7 @@ class FormContact extends React.Component{
                     <textarea  cols="15" rows="2"></textarea>
                 </Label>
                 <Button
+                    color={'color'}
                     handleChange={this.handleChange}
                     type="submit"
                     value={'Связаться'}

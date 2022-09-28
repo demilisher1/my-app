@@ -1,0 +1,12 @@
+@import "reset.css";
+
+:root {
+    --Primary: #6E41E2;
+    --White: #FFFFFF;
+    --Primary-Hover: #5835B0;
+    --Gray: rgba(17, 17, 17, 0.04);
+    --Black: #111111;
+    --Border: 2px solid rgba(17, 17, 17, 0.48);
+    --borderBtn: 1px solid #111111;
+    --borderBtnFocus: 1px solid #828282;
+}

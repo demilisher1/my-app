@@ -1,13 +1,32 @@
 .root {
-    border-radius: 25px;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-    padding: 5px 10px;
-    font-family: inherit;
-    max-width: fit-content;
+    padding: 10px 20px;
+    max-width: max-content;
+    max-height: max-content;
+    background: var(--Primary);
+    border-radius: 4px;
+    color: var(--White);
 }
 
 .root:hover {
-    color: #868986;
+    background: var(--Primary-Hover);
+}
+
+.onFocus {
+    border: var(--Border);
+}
+.contactBtn {
+    color: var(--Black);
+    background: var(--White);
+    border: var(--borderBtn);
+    padding: 10px 20px;
+    max-width: max-content;
+    max-height: max-content;
+    border-radius: 4px;
+}
+.contactBtn:hover {
+    background: var(--Gray);
+}
+
+.onFoc {
+    border: var(--borderBtnFocus);
 }
