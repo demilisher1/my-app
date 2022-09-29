@@ -3,14 +3,12 @@ import PropTypes from "prop-types"
 import style from "./Button.module.css"
 
 class Button extends React.Component{
-    state ={
+    state = {
         focused: false,
     }
 
     handleFocus = (event) => {
-        if (this.props.onFocus) {
-            this.props.onFocus(event)
-        }
+        this.props.onFocus(event)
         this.setState({
             focused: true
         })
@@ -21,21 +19,22 @@ class Button extends React.Component{
             focused: false
         })
     }
-    ///* почему нельзя объеденить PrimaryFocus и secondaryDarkFocus
+
+    getClassName = () => {
+        let className = `${style.root} ${style[this.props.theme] || ''} `;
+
+
+        if (this.state.focused) {
+            className += style.focus
+        }
+
+        return className;
+    }
 
     render() {
-        let className = `${style.primary} `;
-        let color = `${style.secondaryDark} `;
-        if (this.state.focused) {
-            className += style.primaryFocus
-        }
-        if (this.props.color) {
-            className += style.secondaryDark
-        }
-        if (this.state.focused && this.props.color) {
-            className = color + style.secondaryDarkFocus
-        }
         const {handleChange, children, value} = this.props;
+        const className = this.getClassName();
+
         return (
             <button
                 onFocus={this.handleFocus}
@@ -53,6 +52,14 @@ class Button extends React.Component{
 Button.propTypes = {
     handleChange: PropTypes.func.isRequired,
     children: PropTypes.node,
+    theme: PropTypes.oneOf(['primary', 'secondaryDark']),
+    type: PropTypes.string
+}
+
+
+Button.defaultProps = {
+    onFocus: () => {},
+    theme: 'primary'
 }
 
 export default Button

@@ -34,7 +34,6 @@ class FormContact extends React.Component{
                   <Label >
                       <Input
                           onFocus={this.onFocus}
-                          type="text"
                           field="nameValue"
                           value={nameValue}
                           handleChange={this.handleChange}
@@ -58,7 +57,7 @@ class FormContact extends React.Component{
                     ></textarea>
                 </Label>
                 <Button
-                    color={'color'}
+                    theme={'secondaryDark' }
                     handleChange={this.handleChange}
                     type="submit"
                     value={'Связаться'}

@@ -1,15 +1,32 @@
 @import "reset.css";
 
 :root {
-    --Primary: #6E41E2;
-    --White: #FFFFFF;
-    --PrimaryHover: #5835B0;
-    --secondaryDarkHover: rgba(17, 17, 17, 0.04);
-    --Black: #111111;
-    --Border: 2px solid rgba(17, 17, 17, 0.48);
-    --secondaryDarkBorder: 1px solid #111111;
-    --Gray: rgba(17, 17, 17, 0.48);
-    --InputsShadowDefault: 0px 4px 4px rgba(51, 51, 51, 0.04),
-    0px 4px 16px rgba(51, 51, 51, 0.08);
-    --InputsShadowHover: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 24px rgba(51, 51, 51, 0.24);
+    --DefaultShadow: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.08);
+    --DefaultShadowHover: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 24px rgba(51, 51, 51, 0.24);
+
+     /*Colors */
+    --white: #ffffff;
+    --black: #000000;
+    --purple: #6E41E2;
+    --purple2: #5835B0;
+
+    /*Primary style*/
+    --color-primary: var(--white);
+    --bg-primary: var(--purple);
+    --border-color-primary: rgba(17, 17, 17, 0.48);
+    --hover-background-primary: var(--purple2);
+
+    /*Secondary-Dark style*/
+    --color-secondary-dark: var(--black);
+    --border-color-secondary-dark: rgba(17, 17, 17, 0.48);
+    --hover-bg-secondary-dark: rgba(17, 17, 17, 0.04);
+    --bg-secondary-dark: var(--white);
+
+    /* Size */
+    --size-xxs: 1px;
+    --size-xs: 2px;
+    --size-s: 4px;
+    --size-m: 8px;
+    --size-l: 16px;
+    --size-xl: 24px;
 }

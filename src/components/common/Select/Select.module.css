@@ -1,10 +1,18 @@
 .selectDefault {
+    /*radius: 4px;*/
+    /*Offset: 0px, 4px;*/
     color: var(--Gray);
     background: var(--White) ;
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
+    box-shadow: var(--DefaultShadow);
 }
+
+.selectDefault:hover {
+    box-shadow: var(--DefaultShadowHover);
+}
+
 .onFocus {
     border: 2px solid blue;
 }

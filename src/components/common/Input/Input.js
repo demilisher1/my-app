@@ -51,7 +51,6 @@ class Input extends React.Component{
             className += style.DefaultFocus
         }
 
-
         return (
             <input
                 type={type}
@@ -71,5 +70,10 @@ Input.propTypes = {
     value: PropTypes.string.isRequired,
     field: PropTypes.string,
 };
+
+
+Input.defaultProps = {
+    type: 'text',
+}
 
 export default Input;

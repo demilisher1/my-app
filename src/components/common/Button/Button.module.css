@@ -1,32 +1,35 @@
-.primary {
+.root {
     padding: 10px 20px;
     max-width: max-content;
     max-height: max-content;
-    background: var(--Primary);
     border-radius: 4px;
-    color: var(--White);
+}
+
+/* Стили primary начало */
+.primary {
+    color: var(--white);
+    background: var(--purple);
 }
 
 .primary:hover {
-    background: var(--PrimaryHover);
+    background: var(--purple2);
 }
 
-.primaryFocus {
-    border: var(--Border);
-}
+/* Стили primary конец*/
+
+/* Стили secondaryDark начало */
 .secondaryDark {
-    color: var(--Black);
-    background: var(--White);
-    border: var(--secondaryDarkBorder);
-    padding: 10px 20px;
-    max-width: max-content;
-    max-height: max-content;
-    border-radius: 4px;
-}
-.secondaryDark:hover {
-    background: var(--secondaryDarkHover);
+    color: var(--color-secondary-dark);
+    background: var(--bg-secondary-dark);
+    border: var(--size-xs) solid var(--border-color-secondary-dark);
 }
 
-.secondaryDarkFocus {
-    border: var(--Border);
+.secondaryDark:hover {
+    background: var(--size-xs) solid var(--hover-bg-secondary-dark);
+}
+/* Стили secondaryDark конец*/
+
+
+.focus {
+    border: var(--size-xs) solid var(--border-color-primary);
 }

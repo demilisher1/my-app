@@ -4,12 +4,12 @@
     font-weight: 400;
     font-size: 13px;
     line-height: 20px;
-    box-shadow: var(--InputsShadowDefault);
+    box-shadow: var(--DefaultShadow);
     border-radius: 4px;
 }
 
 .DefaultEmpty:hover {
-    box-shadow: var(--InputsShadowHover)
+    box-shadow: var(--DefaultShadowHover)
 }
 .DefaultFocus {
    border: 2px solid blue;
