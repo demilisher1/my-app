@@ -23,7 +23,6 @@ class Button extends React.Component{
     getClassName = () => {
         let className = `${style.root} ${style[this.props.theme] || ''} `;
 
-
         if (this.state.focused) {
             className += style.focus
         }

@@ -32,6 +32,7 @@ class Input extends React.Component{
         if (this.props.onFocus) {
             this.props.onFocus(event)
         }
+
         this.setState({
             focused: true
         })
@@ -43,13 +44,23 @@ class Input extends React.Component{
         })
     }
 
+    getClassName = () => {
+        let className = `${style.root} ${style[this.props.theme] || ''} `;
+
+        if (this.state.focused ) {
+            className += style.focus
+        }
+        if (this.props.validate === false) {
+            className += style.errorActiveFilled
+        }
+
+        return className;
+    }
+
 
     render() {
-        const {value, type, placeholder} = this.props;
-        let className = `${style.DefaultEmpty} `;
-        if(this.state.focused){
-            className += style.DefaultFocus
-        }
+        const {value, type, placeholder } = this.props;
+        const className = this.getClassName();
 
         return (
             <input
@@ -69,11 +80,14 @@ Input.propTypes = {
     handleChange: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,
     field: PropTypes.string,
+    placeholder: PropTypes.string,
+    validate: PropTypes.bool,
+    theme: PropTypes.oneOf(['inputs', 'formContactInput'])
 };
 
 
 Input.defaultProps = {
-    type: 'text',
+    theme: 'inputs',
 }
 
 export default Input;

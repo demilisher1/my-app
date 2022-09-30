@@ -1,16 +1,34 @@
-.DefaultEmpty {
-    background: var(--White);
-    color: var(--Gray);
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 20px;
+.root {
+    border-radius: var(--border-radius-xs);
     box-shadow: var(--DefaultShadow);
-    border-radius: 4px;
+    background: var(--white);
+    color: var(--gray1);
 }
 
-.DefaultEmpty:hover {
+/*Стили Error Active - Filled начало*/
+.errorActiveFilled {
+    background: var(--red-Girl);
+}
+/*Стили Error Active - Filled конец*/
+
+/*Стили FormContactInput начало*/
+.formContactInput {
+    width: 482px;
+    height: 56px;
+    /*box-shadow: var(--DefaultShadow);*/
+}
+
+.formContactInput:hover {
     box-shadow: var(--DefaultShadowHover)
 }
-.DefaultFocus {
-   border: 2px solid blue;
+/*Стили FormContactInput конец*/
+
+.focus {
+    border: var(--size-xs) solid var(--gray);
 }
+
+/*Стили Default начало*/
+.inputs:hover {
+    box-shadow: var(--DefaultShadowHover)
+}
+/*Стили Default конец*/

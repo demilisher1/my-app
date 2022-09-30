@@ -4,23 +4,31 @@
     --DefaultShadow: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.08);
     --DefaultShadowHover: 0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 24px rgba(51, 51, 51, 0.24);
 
+
      /*Colors */
     --white: #ffffff;
     --black: #000000;
     --purple: #6E41E2;
     --purple2: #5835B0;
+    --gray: #828282;
+    --gray1: #d4d4d4 48%;
+    --red-Girl: rgba(249, 227, 227, 1);
 
     /*Primary style*/
     --color-primary: var(--white);
     --bg-primary: var(--purple);
-    --border-color-primary: rgba(17, 17, 17, 0.48);
+
     --hover-background-primary: var(--purple2);
 
     /*Secondary-Dark style*/
     --color-secondary-dark: var(--black);
-    --border-color-secondary-dark: rgba(17, 17, 17, 0.48);
+    --border-color-secondary-dark: var(--black);
     --hover-bg-secondary-dark: rgba(17, 17, 17, 0.04);
     --bg-secondary-dark: var(--white);
+    --border-color-secondary-focus: var(--gray);
+
+    /*Inputs style*/
+    --border-color-inputs: var(--gray);
 
     /* Size */
     --size-xxs: 1px;
@@ -29,4 +37,20 @@
     --size-m: 8px;
     --size-l: 16px;
     --size-xl: 24px;
+    --pading-xxs: 2px 2px;
+    --pading-xs: 4px 4px;
+    --pading-s: 5px 5px;
+    --pading-m: 5px 10px;
+    --pading-l: 10px 15px;
+    --pading-xl: 10px 20px;
+    --pading-xxl: 15px 15px;
+    --pading-xxxl: 15px 20px;
+    --border-radius-xxs: 3px;
+    --border-radius-xs: 4px;
+    --border-radius-s: 8px;
+    --border-radius-m: 10px;
+    --border-radius-l: 15px;
+    --border-radius-xl: 20px;
+    --border-radius-xxl: 25px;
+    --border-radius-xxxl: 100px;
 }

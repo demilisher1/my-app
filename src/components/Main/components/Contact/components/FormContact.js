@@ -33,6 +33,7 @@ class FormContact extends React.Component{
               <div>
                   <Label >
                       <Input
+                          theme={'formContactInput'}
                           onFocus={this.onFocus}
                           field="nameValue"
                           value={nameValue}
@@ -42,6 +43,8 @@ class FormContact extends React.Component{
                   </Label>
                   <Label >
                       <Input
+                          theme={'formContactInput'}
+                          validate={false}
                           type="email"
                           field="emailValue"
                           value={emailValue}

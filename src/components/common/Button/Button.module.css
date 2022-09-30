@@ -1,8 +1,8 @@
 .root {
-    padding: 10px 20px;
+    padding: var(--pading-xl);
     max-width: max-content;
     max-height: max-content;
-    border-radius: 4px;
+    border-radius: var(--border-radius-xs);
 }
 
 /* Стили primary начало */
@@ -14,22 +14,20 @@
 .primary:hover {
     background: var(--purple2);
 }
-
 /* Стили primary конец*/
+
 
 /* Стили secondaryDark начало */
 .secondaryDark {
     color: var(--color-secondary-dark);
     background: var(--bg-secondary-dark);
-    border: var(--size-xs) solid var(--border-color-secondary-dark);
+    border: var(--size-xxs) solid var(--border-color-secondary-dark);
 }
 
 .secondaryDark:hover {
-    background: var(--size-xs) solid var(--hover-bg-secondary-dark);
+    background:  var(--hover-bg-secondary-dark);
 }
 /* Стили secondaryDark конец*/
-
-
 .focus {
-    border: var(--size-xs) solid var(--border-color-primary);
+    border: var(--size-xs) solid var(--border-color-secondary-focus);
 }
