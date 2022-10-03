@@ -25,9 +25,13 @@
     padding-left: 15px;
     position: relative;
     top: -35px;
+    transition: .3s;
 }
 .inputs:focus~.label {
     font-size: 10px;
     transform: translateY(-15px);
+}
+.inputs:not(:focus)~.label {
+    transform: translateY(-5px);
     transition: .3s;
 }
