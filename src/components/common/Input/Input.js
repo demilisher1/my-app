@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import style from './Input.module.css'
+import {isLabelWithInternallyDisabledControl} from "@testing-library/user-event/dist/utils";
 
 /**
  * Это Input
@@ -27,7 +28,6 @@ class Input extends React.Component{
         handleChange(event.target.value, field, event)
     }
 
-
     handleFocus = (event) => {
         if (this.props.onFocus) {
             this.props.onFocus(event)
@@ -48,30 +48,32 @@ class Input extends React.Component{
         let className = `${style.root} ${style[this.props.theme] || ''} `;
 
         if (this.state.focused && this.props.placeholder ) {
-            className += `style.focus ${style.placeholder} `
+            className += style.placeholder
         }
         if (this.props.validate === false) {
             className += style.errorActiveFilled
         }
-
         return className;
     }
-
 
     render() {
         const {value, type, placeholder } = this.props;
         const className = this.getClassName();
 
-        return (
-                <input
-                    type={type}
-                    placeholder={placeholder}
-                    onChange={this.handleChange}
-                    onFocus={this.handleFocus}
-                    onBlur={this.handleBlur}
-                    className={className}
-                    value={value}
-                />
+        return (<>
+            <input
+                type={type}
+                // placeholder={placeholder}
+                onChange={this.handleChange}
+                onFocus={this.handleFocus}
+                onBlur={this.handleBlur}
+                className={className}
+                value={value}
+            />
+            <div className={style.label}>
+                {placeholder}
+            </div>
+            </>
         );
     }
 }
@@ -84,9 +86,7 @@ Input.propTypes = {
     validate: PropTypes.bool,
    };
 
-
 Input.defaultProps = {
     theme: 'inputs',
 }
-
 export default Input;

@@ -21,11 +21,12 @@
     background: var(--red-Girl);
 }
 /*Стили Error Active - Filled конец*/
-
-.focus {
-    border: var(--size-xs) solid var(--gray);
+.label {
+    padding-left: 15px;
+    position: relative;
+    top: -35px;
 }
-.placeholder {
+.inputs:focus~.label {
     font-size: 10px;
     transform: translateY(-15px);
     transition: .3s;
