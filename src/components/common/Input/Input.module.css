@@ -1,8 +1,19 @@
 .root {
     border-radius: var(--border-radius-xs);
+}
+
+/*Стили inputs начало*/
+.inputs {
+    width: 482px;
+    height: 56px;
     box-shadow: var(--DefaultShadow);
     background: var(--white);
     color: var(--gray1);
+}
+/*Стили inputs конец*/
+
+.inputs:hover {
+    box-shadow: var(--DefaultShadowHover)
 }
 
 /*Стили Error Active - Filled начало*/
@@ -11,24 +22,11 @@
 }
 /*Стили Error Active - Filled конец*/
 
-/*Стили FormContactInput начало*/
-.formContactInput {
-    width: 482px;
-    height: 56px;
-    /*box-shadow: var(--DefaultShadow);*/
-}
-
-.formContactInput:hover {
-    box-shadow: var(--DefaultShadowHover)
-}
-/*Стили FormContactInput конец*/
-
 .focus {
     border: var(--size-xs) solid var(--gray);
 }
-
-/*Стили Default начало*/
-.inputs:hover {
-    box-shadow: var(--DefaultShadowHover)
+.placeholder {
+    font-size: 10px;
+    transform: translateY(-15px);
+    transition: .3s;
 }
-/*Стили Default конец*/

@@ -7,9 +7,9 @@ class Label extends React.Component{
         const {title, children} = this.props
         return (
             <div className={style.root}>
-                {/*<div>*/}
-                {/*    {title}*/}
-                {/*</div>*/}
+                <div>
+                    {title}
+                </div>
                 <div>
                     {children}
                 </div>
@@ -19,7 +19,7 @@ class Label extends React.Component{
 }
 
 Label.propTypes = {
-    // title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     children: PropTypes.node
 }
 

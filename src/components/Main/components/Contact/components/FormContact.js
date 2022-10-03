@@ -23,7 +23,6 @@ class FormContact extends React.Component{
 
     onFocus = (event) => {
         // console.log(event)
-
     }
 
     render() {
@@ -31,9 +30,8 @@ class FormContact extends React.Component{
         return (
             <form onSubmit={this.handleSubmit}>
               <div>
-                  <Label >
+                  <Label>
                       <Input
-                          theme={'formContactInput'}
                           onFocus={this.onFocus}
                           field="nameValue"
                           value={nameValue}
@@ -43,7 +41,6 @@ class FormContact extends React.Component{
                   </Label>
                   <Label >
                       <Input
-                          theme={'formContactInput'}
                           validate={false}
                           type="email"
                           field="emailValue"
@@ -56,8 +53,8 @@ class FormContact extends React.Component{
                 <Label>
                     <textarea
                         cols="15" rows="2"
-                        placeholder={'Ваш текст'}
-                    ></textarea>
+                        placeholder='Ваш текст'
+                    />
                 </Label>
                 <Button
                     theme={'secondaryDark' }
