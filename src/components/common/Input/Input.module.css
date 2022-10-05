@@ -4,11 +4,13 @@
 
 /*Стили inputs начало*/
 .inputs {
-    width: 482px;
-    height: 56px;
+    width: 100%;
     box-shadow: var(--DefaultShadow);
     background: var(--white);
     color: var(--gray1);
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 16px;
 }
 /*Стили inputs конец*/
 
@@ -21,17 +23,22 @@
     background: var(--red-Girl);
 }
 /*Стили Error Active - Filled конец*/
-.label {
-    padding-left: 15px;
+.headInputs {
     position: relative;
-    top: -35px;
-    transition: .3s;
+    width: 100%;
 }
-.inputs:focus~.label {
-    font-size: 10px;
-    transform: translateY(-15px);
-}
-.inputs:not(:focus)~.label {
-    transform: translateY(-5px);
+.label {
+    position: absolute;
+    pointer-events: none;
+    line-height: 24px;
+    font-size: 16px;
+    padding: 16px;
+    color: var(--gray);
     transition: .3s;
+    top: 0;
+}
+
+.labelFocused {
+    font-size: 13px;
+    top: -10px;
 }

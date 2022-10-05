@@ -23,9 +23,12 @@ class Button extends React.Component{
     getClassName = () => {
         let className = `${style.root} ${style[this.props.theme] || ''} `;
 
-        if (this.state.focused) {
-            className += style.focus
+        if (this.state.focused && this.props.fullWidth) {
+            className += `${style.focus} ${style.fullWidth} `
         }
+        // if (this.props.fullWidth) {
+        //     className += style.fullWidth
+        // }
 
         return className;
     }
@@ -52,7 +55,8 @@ Button.propTypes = {
     handleChange: PropTypes.func.isRequired,
     children: PropTypes.node,
     theme: PropTypes.oneOf(['primary', 'secondaryDark']),
-    type: PropTypes.string
+    type: PropTypes.string,
+    fullWidth: PropTypes.bool
 }
 
 

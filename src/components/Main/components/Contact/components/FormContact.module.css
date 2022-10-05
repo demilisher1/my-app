@@ -1,16 +1,24 @@
 
+.formInput {
+    width: 410px;
+}
 
+.textarea {
+    height: 56px;
+    background: var(--white);
+    box-shadow: var(--DefaultShadow);
+    resize: none;
+    font-size: 16px;
+    color: var(--gray);
+    padding-left: 16px;
+    padding-top: 16px;
+    width: 100%;
+    margin-bottom: 30px;
+}
 
-
-
-/*.formGroup input,*/
-/*.formGroup textarea {*/
-/*    width: 100%;*/
-/*    box-sizing: border-box;*/
-/*    color: #000;*/
-/*    padding: 15px 0 10px;*/
-/*    outline: none;*/
-/*    font-size: 14px;*/
-/*    font-weight: bold;*/
-/*}*/
-
+.inputName {
+    margin-bottom: 10px;
+}
+.inputEmail {
+    margin-bottom: 20px;
+}

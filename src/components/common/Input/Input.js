@@ -47,33 +47,45 @@ class Input extends React.Component{
     getClassName = () => {
         let className = `${style.root} ${style[this.props.theme] || ''} `;
 
-        if (this.state.focused && this.props.placeholder ) {
-            className += style.placeholder
-        }
         if (this.props.validate === false) {
             className += style.errorActiveFilled
         }
         return className;
     }
 
-    render() {
-        const {value, type, placeholder } = this.props;
-        const className = this.getClassName();
+    getClassNameLabel = () => {
+        let className = `${style.label || ''} `;
 
-        return (<>
-            <input
-                type={type}
-                // placeholder={placeholder}
-                onChange={this.handleChange}
-                onFocus={this.handleFocus}
-                onBlur={this.handleBlur}
-                className={className}
-                value={value}
-            />
-            <div className={style.label}>
-                {placeholder}
+        if (this.state.focused || this.props.value.length > 0) {
+            className += style.labelFocused
+        }
+
+        return className
+    }
+
+    render() {
+        const {value, type, placeholder, label } = this.props;
+        const className = this.getClassName();
+        const classNameLabel = this.getClassNameLabel();
+        let test = '';
+        if(this.state.focused){
+            test = placeholder
+        }
+        return (
+            <div className={style.headInputs}>
+                <input
+                    type={type}
+                    placeholder={test}
+                    onChange={this.handleChange}
+                    onFocus={this.handleFocus}
+                    onBlur={this.handleBlur}
+                    className={className}
+                    value={value}
+                />
+                <div className={classNameLabel}>
+                    {label}
+                </div>
             </div>
-            </>
         );
     }
 }
@@ -84,7 +96,8 @@ Input.propTypes = {
     field: PropTypes.string,
     placeholder: PropTypes.string,
     validate: PropTypes.bool,
-   };
+    label: PropTypes.string.isRequired
+};
 
 Input.defaultProps = {
     theme: 'inputs',

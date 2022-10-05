@@ -28,40 +28,54 @@ class FormContact extends React.Component{
     render() {
         const {nameValue, emailValue} = this.state;
         return (
-            <form onSubmit={this.handleSubmit}>
-              <div>
-                  <Label>
-                      <Input
-                          onFocus={this.onFocus}
-                          field="nameValue"
-                          value={nameValue}
-                          handleChange={this.handleChange}
-                          placeholder="Введите ваше имя..."
-                      />
-                  </Label>
-                  <Label >
-                      <Input
-                          validate={false}
-                          type="email"
-                          field="emailValue"
-                          value={emailValue}
-                          handleChange={this.handleChange}
-                          placeholder="Введите ваш email..."
-                      />
-                  </Label>
-              </div>
+            <form onSubmit={this.handleSubmit}  className={style.formInput}>
+                <div>
+                    <Label>
+                        <div className={style.inputName}>
+                            <Input
+                                onFocus={this.onFocus}
+                                field="nameValue"
+                                value={nameValue}
+                                handleChange={this.handleChange}
+                                placeholder="Введите ваше имя..."
+                                label={"Имя"}
+                            />
+                        </div>
+                    </Label>
+                    <Label >
+                        <div className={style.inputEmail}>
+                            <Input
+                                validate={false}
+                                type="email"
+                                field="emailValue"
+                                value={emailValue}
+                                handleChange={this.handleChange}
+                                placeholder="Введите ваш email..."
+                                label={"Email"}
+                            />
+                        </div>
+                    </Label>
+                </div>
                 <Label>
                     <textarea
+                        className={style.textarea}
                         cols="15" rows="2"
                         placeholder='Ваш текст'
                     />
                 </Label>
                 <Button
-                    theme={'secondaryDark' }
+                    fullWidth={true}
                     handleChange={this.handleChange}
                     type="submit"
                     value={'Связаться'}
-                    />
+                />
+                <Button
+                    fullWidth={true}
+                    theme={'secondaryDark' }
+                    handleChange={this.handleChange}
+                    type="submit"
+                    value={'Сбросить'}
+                />
             </form>
         );
     }
