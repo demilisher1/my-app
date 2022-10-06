@@ -10,10 +10,7 @@ class FormContact extends React.Component{
         formData: {
             name: '',
             email: '',
-            lesha: '',
-            shulya: ''
         },
-        LESHA: ''
     }
 
     handleSubmit = (event) => {
@@ -22,9 +19,7 @@ class FormContact extends React.Component{
         event.preventDefault();
     }
 
-    handleChange = ( value, field = 'name') => {
-        const newObj = {...this.state.formData};
-        // newObj[field] = value
+    handleChange = ( value, field) => {
 
         this.setState({
             formData: {
@@ -49,7 +44,7 @@ class FormContact extends React.Component{
                             <Input
                                 onFocus={this.onFocus}
                                 field="name"
-                                value={this.state.formData["name"]}
+                                value={name}
                                 handleChange={this.handleChange}
                                 placeholder="Введите ваше имя..."
                                 label={"Имя"}
