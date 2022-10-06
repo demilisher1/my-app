@@ -4,13 +4,14 @@
 
 /*Стили inputs начало*/
 .inputs {
-    width: 100%;
+    width: calc(100% - 16px);
     box-shadow: var(--DefaultShadow);
     background: var(--white);
     color: var(--gray1);
     padding-top: 30px;
     padding-bottom: 10px;
     padding-left: 16px;
+    padding-right: 0;
 }
 /*Стили inputs конец*/
 

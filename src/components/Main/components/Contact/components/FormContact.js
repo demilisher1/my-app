@@ -3,21 +3,34 @@ import style from './FormContact.module.css'
 import Label from "../../../../common/Label/Label";
 import Input from "../../../../common/Input/Input";
 import Button from "../../../../common/Button/Button";
+import {object} from "prop-types";
 
 class FormContact extends React.Component{
     state = {
-        nameValue: '',
-        emailValue: '',
+        formData: {
+            name: '',
+            email: '',
+            lesha: '',
+            shulya: ''
+        },
+        LESHA: ''
     }
 
     handleSubmit = (event) => {
-        alert(this.state.nameValue + ' Вам поступит письмо на почту ' +  this.state.emailValue );
+        alert(this.state.formData["name"] + ' Вам поступит письмо на почту ' +  this.state.formData["email"] );
+        console.log(this.state.formData)
         event.preventDefault();
     }
 
-    handleChange = ( value, field) => {
+    handleChange = ( value, field = 'name') => {
+        const newObj = {...this.state.formData};
+        // newObj[field] = value
+
         this.setState({
-            [field]: value
+            formData: {
+                ...this.state.formData,
+                [field]: value
+            }
         })
     }
 
@@ -26,7 +39,8 @@ class FormContact extends React.Component{
     }
 
     render() {
-        const {nameValue, emailValue} = this.state;
+        const {name, email} = this.state.formData;
+
         return (
             <form onSubmit={this.handleSubmit}  className={style.formInput}>
                 <div>
@@ -34,8 +48,8 @@ class FormContact extends React.Component{
                         <div className={style.inputName}>
                             <Input
                                 onFocus={this.onFocus}
-                                field="nameValue"
-                                value={nameValue}
+                                field="name"
+                                value={this.state.formData["name"]}
                                 handleChange={this.handleChange}
                                 placeholder="Введите ваше имя..."
                                 label={"Имя"}
@@ -47,8 +61,8 @@ class FormContact extends React.Component{
                             <Input
                                 validate={false}
                                 type="email"
-                                field="emailValue"
-                                value={emailValue}
+                                field="email"
+                                value={email}
                                 handleChange={this.handleChange}
                                 placeholder="Введите ваш email..."
                                 label={"Email"}
@@ -64,13 +78,13 @@ class FormContact extends React.Component{
                     />
                 </Label>
                 <Button
-                    fullWidth={true}
+                    fullWidth
                     handleChange={this.handleChange}
                     type="submit"
                     value={'Связаться'}
                 />
                 <Button
-                    fullWidth={true}
+                    fullWidth
                     theme={'secondaryDark' }
                     handleChange={this.handleChange}
                     type="submit"

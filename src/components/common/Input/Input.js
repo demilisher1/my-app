@@ -48,7 +48,7 @@ class Input extends React.Component{
         let className = `${style.root} ${style[this.props.theme] || ''} `;
 
         if (this.props.validate === false) {
-            className += style.errorActiveFilled
+            className += style.errorActiveFilled + ' '
         }
         return className;
     }

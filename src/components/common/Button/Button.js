@@ -10,25 +10,28 @@ class Button extends React.Component{
     handleFocus = (event) => {
         this.props.onFocus(event)
         this.setState({
-            focused: true
+            focused: true,
         })
     }
 
     handleBlur = event => {
         this.setState({
-            focused: false
+            focused: false,
         })
     }
 
     getClassName = () => {
         let className = `${style.root} ${style[this.props.theme] || ''} `;
 
-        if (this.state.focused && this.props.fullWidth) {
-            className += `${style.focus} ${style.fullWidth} `
+
+        if (this.props.fullWidth) {
+            className += style.fullWidth + ' '
         }
-        // if (this.props.fullWidth) {
-        //     className += style.fullWidth
-        // }
+
+        if (this.state.focused) {
+            className += style.focus + ' '
+        }
+
 
         return className;
     }
@@ -62,7 +65,8 @@ Button.propTypes = {
 
 Button.defaultProps = {
     onFocus: () => {},
-    theme: 'primary'
+    theme: 'primary',
+    fullWidth: false,
 }
 
 export default Button

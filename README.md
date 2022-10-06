@@ -8,3 +8,11 @@
 6. Реализовать компонент Table
 
 Все комопненты должны быть универсальны в использовании
+
+
+
+
+Button_root__M7fVw Button_primary__Cjp2F Button_fullWidth__obK47Button_focus__YvXch
+
+
+lesha privet 

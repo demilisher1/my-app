@@ -1,9 +1,11 @@
 
 .formInput {
     width: 410px;
+    margin: 0 auto;
 }
 
 .textarea {
+    width: calc(100% - 16px);
     height: 56px;
     background: var(--white);
     box-shadow: var(--DefaultShadow);
@@ -12,7 +14,7 @@
     color: var(--gray);
     padding-left: 16px;
     padding-top: 16px;
-    width: 100%;
+    padding-right: 0;
     margin-bottom: 30px;
 }
 
