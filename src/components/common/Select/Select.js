@@ -29,7 +29,7 @@ class Select extends React.Component {
         if(this.state.focused){
             className += style.onFocus
         }
-        const {options, value} = this.props;
+        const {options, value, itemFormat} = this.props;
         return (
             <select
                 onFocus={this.handleFocus}
@@ -39,8 +39,8 @@ class Select extends React.Component {
                 onChange={this.handleChange}
             >
                 {options.map(item => (
-                    <option key={item.column} value={item.column}>
-                        {item.title}
+                    <option key={item[itemFormat.value]} value={item[itemFormat.value]}>
+                        {item[itemFormat.name]}
                     </option>
                 ))}
             </select>
@@ -52,7 +52,8 @@ Select.propTypes = {
     value: PropTypes.string.isRequired,
     handleChange: PropTypes.func.isRequired,
     options: PropTypes.array.isRequired,
-    field: PropTypes.string
+    field: PropTypes.string,
+    itemFormat: PropTypes.object.isRequired,
 };
 
 export default Select;

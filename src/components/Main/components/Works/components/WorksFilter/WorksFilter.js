@@ -2,14 +2,14 @@ import React from 'react';
 import Label from "../../../../../common/Label/Label";
 import Select from "../../../../../common/Select/Select";
 import Input from "../../../../../common/Input/Input";
-import style from './WorksFilter.module.css';
 import {connect} from "react-redux";
-import {changeDataState, setIncomingData} from "../../../../../../store/worksTableSlice/worksTableSlice";
+import {changeDataState} from "../../../../../../store/worksTableSlice/worksTableSlice";
 
 class WorksFilter extends React.Component {
     state = {
         /** searchValue это вэлью для инпута. */
         searchValue: '',
+        searchTest: '',
         /** selectValue это вэлью для селекта. */
         selectValue: 'work'
     };
@@ -38,16 +38,32 @@ class WorksFilter extends React.Component {
     };
 
     render() {
-        const { head } = this.props;
-        const {searchValue, selectValue} = this.state;
+        const { head, test } = this.props;
+        const {searchValue, selectValue, searchTest} = this.state;
 
         return(
             <div>
                 <Label title="Фильтруемое поле" >
                     <Select
                         value={selectValue}
+                        itemFormat={{
+                            name: 'title',
+                            value: 'column'
+                        }}
                         options={head}
                         field="selectValue"
+                        handleChange={this.handleChange}
+                    />
+                </Label>
+                <Label title="Новый какой то фильтр" >
+                    <Select
+                        value={searchTest}
+                        itemFormat={{
+                            name: 'qwe',
+                            value: 'test123'
+                        }}
+                        options={test}
+                        field="searchTest"
                         handleChange={this.handleChange}
                     />
                 </Label>
@@ -66,6 +82,7 @@ class WorksFilter extends React.Component {
 function mapStateToProps(state) {
     return {
         head: state.worksTable.head,
+        test: state.worksTable.test,
         incomingData: state.worksTable.incomingData,
     }
 }

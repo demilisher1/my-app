@@ -73,6 +73,16 @@ export const worksTableSlice = createSlice({
             },
 
         ],
+        test: [
+            {
+                qwe:  'Порядковый номер123123',
+                test123: 'lesha'
+            },
+            {
+                qwe:  'Место работы13123',
+                test123: 'shu'
+            },
+        ],
         hideColumns: [],
         incomingData: [],
     },
