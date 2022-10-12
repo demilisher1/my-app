@@ -41,6 +41,102 @@ class WorksFilter extends React.Component {
         const { head, test } = this.props;
         const {searchValue, selectValue, searchTest} = this.state;
 
+        // Литеральный способ
+        const obj = {
+            name: "Alex",
+            middleName: "Shu",
+            getName() {
+                return this.name
+            }
+        };
+
+        // Стандартный конструктор JS
+        const obj1 = new Object();
+        obj1.name = "Alex"
+        obj1.middleName = "Shu"
+        obj1.getName = function () {
+            return this.name
+        }
+
+        // анонимное создание объекта
+        const obj4 = {};
+        obj4.name = "Alex"
+        obj4.getName = function () {
+            return this.name
+        }
+
+        // Объект как ассоциативный массив
+        const obj3 = new Object();
+        obj3["name"] = "Alex";
+        obj3["getName"] = function () {
+            return this.name
+        }
+
+            // Создание объекта с помощью функции
+        function Obj5(name) {
+            const nameQ = name
+            this.getName = function() {
+                return nameQ
+            }
+        }
+
+        function Obj6(name) {
+            this.name = name
+            this.getName = () =>  {
+                return this.name
+            }
+        }
+
+        function Obj7(name) {
+            this.name = name
+            this.getName = function() {
+                return this.name
+            }
+        }
+
+
+        const Test123 = (name) => {
+            this.name = name
+            this.getName = function() {
+                return this.name
+            }
+        }
+
+        function lesha(name) {
+            this.name = name
+            this.getName = function() {
+                return this.name
+            }
+        }
+
+
+        let person = new Obj5('Alex');
+        let person2 = new Obj7('Alex')
+        let person3 = new Test123('Alex')
+        let person4 = new Obj6('Alex')
+        let person5 = new lesha('Alex')
+
+
+        console.log(person.getName()) //Alex
+        console.log(person2.getName()) // Alex
+        console.log(person3.getName()) // Alex
+        console.log(person4.getName()) // Alex
+        console.log(person5.getName()) //error
+
+
+            // С помощью класса
+        //
+        // class Obj6 {
+        //     constructor(name) {
+        //          this.name = name;
+        //     }
+        //     sayHi() {
+        //         // console.log(this.name)
+        //     }
+        // }
+        // let objUser = new Obj6("Alex");
+        // objUser.sayHi();
+
         return(
             <div>
                 <Label title="Фильтруемое поле" >

@@ -96,7 +96,7 @@ Input.propTypes = {
     field: PropTypes.string,
     placeholder: PropTypes.string,
     validate: PropTypes.bool,
-    label: PropTypes.string.isRequired
+    // label: PropTypes.string.isRequired
 };
 
 Input.defaultProps = {
