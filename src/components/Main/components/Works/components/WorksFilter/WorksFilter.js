@@ -42,66 +42,105 @@ class WorksFilter extends React.Component {
         const {searchValue, selectValue, searchTest} = this.state;
 
 
-        function FIO({firstName, lastName, middleName}) {
-            return `${firstName} ${lastName} ${middleName}`
-        }
+        // function FIO({firstName, lastName, middleName}) {
+        //     return `${firstName} ${lastName} ${middleName}`
+        // }
+        //
+        // let user = {
+        //     get firstName() {
+        //         return this._firstName || 'текст по дефолту';
+        //     },
+        //     set firstName(value) {
+        //         if(value.length > 0){
+        //             this._firstName = value;
+        //             this.fio = FIO(this)
+        //             console.log(this)
+        //         } else {
+        //             this.validUser = false;
+        //         }
+        //
+        //     },
+        //     get lastName() {
+        //         return this._lastName || 'текст по дефолту';
+        //     },
+        //
+        //     set lastName(value) {
+        //         if(value.length > 0){
+        //             this._lastName = value;
+        //             this.fio = FIO(this)
+        //         } else {
+        //             this.validUser = false;
+        //         }
+        //     },
+        //     get middleName() {
+        //         return this._middleName || 'текст по дефолту';
+        //     },
+        //
+        //     set middleName(value) {
+        //         this._middleName = value;
+        //         if(value.length > 0){
+        //             this._middleName = value;
+        //             this.fio = FIO(this)
+        //         } else {
+        //             this.validUser = false;
+        //         }
+        //     },
+        //
+        //     validUser: true,
+        //     fio: 'пока тут ничего нет'
+        // };
+        //
+        // user.firstName = 'Алексей';
+        //
+        // user.lastName = 'Шуляков'
+        //
+        // user.middleName = 'Юрич'
+        //
+        // user.firstName = '';
+        //
+        // user.lastName = ''
+        //
+        // user.middleName = ''
 
-        let user = {
-            get firstName() {
-                return this._firstName || 'текст по дефолту';
-            },
-            set firstName(value) {
-                if(value.length > 0){
-                    this._firstName = value;
-                    this.fio = FIO(this)
-                } else {
-                    this.validUser = false;
-                }
+        // console.log(user.fio)
 
-            },
-            get lastName() {
-                return this._lastName || 'текст по дефолту';
-            },
+        // let range = {from: 1, to: 5};
+        // range[Symbol.iterator] = function () {
+        //
+        //     return {
+        //         current: this.from,
+        //         last: this.to,
+        //         next() {
+        //             if (this.current <= this.last) {
+        //                 return {done: false, value: this.current++};
+        //             } else {
+        //                 return {done:true};
+        //             }
+        //         }
+        //     }
+        // }
+        // for (let num of range) {
+        //     console.log(num)
+        // }
+        // const range = {
+        //     from: 1,
+        //     to: 5,
+        //     [Symbol.iterator] () {
+        //         this.current = this.from;
+        //         return this;
+        //     },
+        //     next() {
+        //         if (this.current <= this.to) {
+        //             return {done: false, value: this.current++}
+        //         } else  {
+        //             return  {done: true}
+        //         }
+        //     }
+        // }
+        // for (let number of range) {
+        //    console.log(number)
+        // }
 
-            set lastName(value) {
-                if(value.length > 0){
-                    this._lastName = value;
-                    this.fio = FIO(this)
-                } else {
-                    this.validUser = false;
-                }
-            },
-            get middleName() {
-                return this._middleName || 'текст по дефолту';
-            },
-
-            set middleName(value) {
-                this._middleName = value;
-                if(value.length > 0){
-                    this._middleName = value;
-                    this.fio = FIO(this)
-                } else {
-                    this.validUser = false;
-                }
-            },
-
-            validUser: true,
-            fio: 'пока тут ничего нет'
-        };
-
-        user.firstName = 'Алексей';
-
-        user.lastName = 'Шуляков'
-
-        user.middleName = 'Юрич'
-
-        user.firstName = '';
-
-        user.lastName = ''
-
-        user.middleName = ''
-
-        console.log(user.fio)
 
         return(
             <div>
