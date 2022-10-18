@@ -19,71 +19,52 @@ class Works extends React.Component {
 
     render() {
         const {visibleTable} = this.props;
-
-        function FIO({firstName, lastName, middleName}) {
-            debugger;
-            return `${firstName} ${lastName} ${middleName}`
+        const test1 = {
+            abs: '123',
+            lesha: 'привет'
         }
 
-        let user = {
-            get firstName() {
-                debugger;
-                return this._firstName || 'текст по дефолту';
-            },
-            set firstName(value) {
-                debugger;
-                if(value.length > 0){
-                    this._firstName = value;
-                    this.fio = FIO(this)
-                } else {
-                    this.validUser = false;
-                }
+        let test2 = {
+            qwe: '1234555',
+            abb: 'try'
+        }
+        let test3 = {
+            abs: '123',
+            lesha: 'привет',
+            qwe: '1234555',
+            abb: 'try'
+        }
 
-            },
-            get lastName() {
-                return this._lastName || 'текст по дефолту';
-            },
+        function test (data, fields) {
 
-            set lastName(value) {
-                if(value.length > 0){
-                    this._lastName = value;
-                    this.fio = FIO(this)
-                } else {
-                    this.validUser = false;
-                }
-            },
-            get middleName() {
-                return this._middleName || 'текст по дефолту';
-            },
+// let a = Object.entries(data);
+// for (let value of a) {
+//     debugger;
+//     if (!value.includes(fields)) {
+//     }
+// }
 
-            set middleName(value) {
-                this._middleName = value;
-                if(value.length > 0){
-                    this._middleName = value;
-                    this.fio = FIO(this)
-                } else {
-                    this.validUser = false;
-                }
-            },
+            // for (let key in data) {
+            //     // debugger;
+            //     if (fields.includes(key)) {
+            //
+            //     }
+            // }
 
-            validUser: true,
-            fio: 'пока тут ничего нет'
-        };
+        }
 
-        user.firstName = 'Алексей';
-        debugger;
-        user.lastName = 'Шуляков';
+        const result = test(test3, ['lesha', 'abb']);
 
-        user.middleName = 'Юрич';
+// const result2 = test3.removeFields(['lesha', 'abb']);
 
-        user.firstName = '';
-        debugger;
 
-        user.lastName = '';
 
-        user.middleName = '';
-
-        console.log(user.fio)
+        console.log(result);
+// console.log(result2);
+// {
+//     abs: '123',
+//     qwe: '1234555',
+// }
 
         return (
             <div className={style.green}>
