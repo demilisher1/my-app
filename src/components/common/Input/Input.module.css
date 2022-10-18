@@ -8,11 +8,9 @@
     box-shadow: var(--DefaultShadow);
     background: var(--white);
     color: var(--gray1);
-    padding-top: 30px;
-    padding-bottom: 10px;
-    padding-left: 16px;
-    padding-right: 0;
+    padding: 30px 0 10px 16px;
 }
+
 /*Стили inputs конец*/
 
 .inputs:hover {

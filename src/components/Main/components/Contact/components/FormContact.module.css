@@ -19,8 +19,12 @@
 }
 
 .inputName {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 .inputEmail {
     margin-bottom: 20px;
 }
+.buttonCall {
+    margin-bottom: 20px;
+}
+

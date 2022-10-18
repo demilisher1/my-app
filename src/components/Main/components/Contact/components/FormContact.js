@@ -14,7 +14,7 @@ class FormContact extends React.Component{
     }
 
     handleSubmit = (event) => {
-        alert(this.state.formData["name"] + ' Вам поступит письмо на почту ' +  this.state.formData["email"] );
+        alert(this.state.formData.name + ' Вам поступит письмо на почту ' +  this.state.formData.email );
         console.log(this.state.formData)
         event.preventDefault();
     }
@@ -72,12 +72,14 @@ class FormContact extends React.Component{
                         placeholder='Ваш текст'
                     />
                 </Label>
-                <Button
-                    fullWidth
-                    handleChange={this.handleChange}
-                    type="submit"
-                    value={'Связаться'}
-                />
+                <div className={style.buttonCall}>
+                    <Button
+                        fullWidth
+                        handleChange={this.handleChange}
+                        type="submit"
+                        value={'Связаться'}
+                    />
+                </div>
                 <Button
                     fullWidth
                     theme={'secondaryDark' }

@@ -65,7 +65,7 @@ Button.propTypes = {
 Button.defaultProps = {
     onFocus: () => {},
     theme: 'primary',
-    fullWidth: false,
+    // fullWidth: false,
 }
 
 export default Button

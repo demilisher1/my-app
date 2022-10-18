@@ -19,53 +19,19 @@ class Works extends React.Component {
 
     render() {
         const {visibleTable} = this.props;
-        const test1 = {
-            abs: '123',
-            lesha: 'привет'
-        }
+        const arr = Object.entries(data).reduce((acc, [key, value]) =>{
+            debugger;
 
-        let test2 = {
-            qwe: '1234555',
-            abb: 'try'
-        }
-        let test3 = {
-            abs: '123',
-            lesha: 'привет',
-            qwe: '1234555',
-            abb: 'try'
-        }
+            if (!fields.includes([key, value])) {
+                acc+= [key, value]
 
-        function test (data, fields) {
+            } else {
+                return  acc
+            }
+            return acc
+        }, {})
 
-// let a = Object.entries(data);
-// for (let value of a) {
-//     debugger;
-//     if (!value.includes(fields)) {
-//     }
-// }
-
-            // for (let key in data) {
-            //     // debugger;
-            //     if (fields.includes(key)) {
-            //
-            //     }
-            // }
-
-        }
-
-        const result = test(test3, ['lesha', 'abb']);
-
-// const result2 = test3.removeFields(['lesha', 'abb']);
-
-
-
-        console.log(result);
-// console.log(result2);
-// {
-//     abs: '123',
-//     qwe: '1234555',
-// }
-
+        return arr
         return (
             <div className={style.green}>
                 <Button handleChange={this.changeVariableTable}>
