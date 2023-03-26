@@ -19,19 +19,7 @@ class Works extends React.Component {
 
     render() {
         const {visibleTable} = this.props;
-        const arr = Object.entries(data).reduce((acc, [key, value]) =>{
-            debugger;
 
-            if (!fields.includes([key, value])) {
-                acc+= [key, value]
-
-            } else {
-                return  acc
-            }
-            return acc
-        }, {})
-
-        return arr
         return (
             <div className={style.green}>
                 <Button handleChange={this.changeVariableTable}>
